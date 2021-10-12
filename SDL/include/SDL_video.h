@@ -1,4 +1,4 @@
-#pr/*
+/*
   Simple DirectMedia Layer
   Copyright (C) 1997-2020 Sam Lantinga <slouken@libsdl.org>
   This software is provided 'as-is', without any express or implied
@@ -1276,4 +1276,4 @@
 
 #endif /* SDL_video_h_ */
 
-/* vi: set ts=4 sw=4 expandtab: */agma once
+/* vi: set ts=4 sw=4 expandtab: */
