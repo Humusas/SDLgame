@@ -1,1 +1,34 @@
+<<<<<<< HEAD
 ﻿  2D game.vcxproj -> C:\Users\sip0267\Desktop\sdl game\SDLgame\Debug\2D game.exe
+=======
+﻿  2Dgame.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Background.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Background2.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Cop.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Credits.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  GameObject.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Input.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Music.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Music.h(3,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Player.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Score.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Screen.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Sound.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Sound.h(2,10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Sprite.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Sprite.cpp(2,10): fatal error C1083: Cannot open include file: 'SDL_image.h': No such file or directory
+  Text.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\SDL\include\SDL_video.h(1,1): fatal error C1021: invalid preprocessor command 'pr'
+  Vector2D.cpp
+  Generating Code...
+>>>>>>> master
