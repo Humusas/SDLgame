@@ -31,6 +31,12 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{2cd9622c-15a2-4597-b826-39b091672d98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameStates">
+      <UniqueIdentifier>{4600d3e0-1959-48d6-9946-82d197dbb837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStates">
+      <UniqueIdentifier>{cf4d1635-68bb-4d23-888c-6762256e9626}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BoxCollider.cpp">
@@ -81,6 +87,21 @@
     <ClCompile Include="Score.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -127,6 +148,18 @@
     </ClInclude>
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Main</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
