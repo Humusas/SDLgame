@@ -20,7 +20,7 @@ public:
 
 private:
 
-	int m_score=0;
+	int m_score;
 
 	int m_newScore;
 

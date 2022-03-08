@@ -35,7 +35,7 @@ void Score::AddScore(int extraScore)
 
 void Score::Update(Input& input)
 {
-
+	m_newScore = m_score;
 }
 
 void Score::Render(Screen& screen)
