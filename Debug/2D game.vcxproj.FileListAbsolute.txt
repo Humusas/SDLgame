@@ -1,3 +1,0 @@
-C:\Users\Dell\source\repos\2D game + SDL\Debug\2D game.exe
-C:\Users\Dell\source\repos\2D game + SDL\Debug\2D game.pdb
-C:\Users\sip0267\Desktop\sdl game\SDLgame\Debug\2D game.exe
