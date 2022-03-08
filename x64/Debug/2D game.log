@@ -1,0 +1,31 @@
+﻿  2Dgame.cpp
+  Background.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\2Dgame.cpp(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Background2.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  BoxCollider.cpp
+  Cop.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Credits.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  GameObject.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Input.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Music.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Input.cpp(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Player.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Music.h(3,10): error C1083:  Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Score.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Screen.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\GameObject.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Sound.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Screen.cpp(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
+  Sprite.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Sound.h(2,10): error C1083:  Cannot open include file: 'SDL_mixer.h': No such file or directory
+  Text.cpp
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Sprite.cpp(2,10): error C1083:  Cannot open include file: 'SDL_image.h': No such file or directory
+  Vector2D.cpp
+  Generating Code...
+C:\Users\sip0267\Desktop\sdl game\SDLgame\Screen.h(2,10): error C1083:  Cannot open include file: 'SDL.h': No such file or directory
