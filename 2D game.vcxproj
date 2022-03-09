@@ -92,8 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Dell\Desktop\humus\humus\SDLgame\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,8 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Dell\Desktop\humus\humus\SDLgame\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,7 +157,6 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Player.cpp" />

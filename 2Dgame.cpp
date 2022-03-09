@@ -1,4 +1,3 @@
-#include <iostream>
 #include <SDL.h>
 #include <string>
 #include "Background.h"
@@ -15,20 +14,52 @@
 #include "Sound.h"
 #include "Text.h"
 #include "Vector2D.h"
-#include "Game.h"
 #include "GameState.h"
 #include "MenuState.h"
 #include "PlayState.h"
 
-bool isGameRunning = true;
-int game_screen = 0;
+//bool isGameRunning = true;
+//int game_screen = 0;
 
+
+#include <iostream>
+#include <memory> // to have heap memory
+#include "Game.h"
+
+
+int main(int argc, char* argv[])
+{
+
+
+	//do not use raw pointers. use smart ones instead. to have game on the heap:
+	std::unique_ptr<Game> NewGame = std::make_unique<Game>();
+
+	if (!NewGame->Initialize())
+	{
+
+
+	}
+	if (!NewGame->Run())
+	{
+		NewGame->Shutdown();
+
+	}
+	
+	/*Game game;
+
+	if (game.Initialize())
+	{
+		game.Run();
+		game.Shutdown();
+	}*/
+
+
+/*
 int main(int argc, char* argv[])
 {
 	std::cout << "Hello, user. Game screen size is 1280x720. Enjoy" << std::endl;
 	system("pause");
 
-	//srand(time(0));
 	Screen Screen;
 	Input Input;
 
@@ -281,7 +312,9 @@ int main(int argc, char* argv[])
 	delete score;
 
 	Screen.Shutdown();
+	*/
 
 	system("pause");
 	return 0;
+	
 }

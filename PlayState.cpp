@@ -15,7 +15,7 @@ GameState* PlayState::Update()
 	//check if buttons are clicked on
 	//All main game mechanics are updated here
 
-	if (userWishesToExitGame)
+/*	if (userWishesToExitGame)
 	{
 		return new MenuState;
 	}
@@ -24,7 +24,7 @@ GameState* PlayState::Update()
 	{
 		return new PauseState;
 	}
-
+	*/
 	return this;
 }
 
