@@ -1,6 +1,6 @@
 #pragma once
 
-//This is an ABC class because we have at least 1 puure virtual function (= 0)
+//This is an ABC class because we have at least 1 pure virtual function (= 0)
 //You cannot instantiate this class!
 
 class GameState

@@ -1,4 +1,4 @@
-#include <SDL.h>
+/*#include <SDL.h>  ++
 #include <string>
 #include "Background.h"
 #include "Background2.h"
@@ -10,13 +10,13 @@
 #include "Player.h"
 #include "Score.h"
 #include "Screen.h"
-#include "Sprite.h"
+#include "Sprite.h" ++
 #include "Sound.h"
 #include "Text.h"
 #include "Vector2D.h"
 #include "GameState.h"
 #include "MenuState.h"
-#include "PlayState.h"
+#include "PlayState.h"*/
 
 //bool isGameRunning = true;
 //int game_screen = 0;
@@ -27,24 +27,29 @@
 #include "Game.h"
 
 
-int main(int argc, char* argv[])
+int main(int argc, char* argv[]) 
 {
-
-
 	//do not use raw pointers. use smart ones instead. to have game on the heap:
 	std::unique_ptr<Game> NewGame = std::make_unique<Game>();
 
 	if (!NewGame->Initialize())
 	{
-
-
 	}
-	if (!NewGame->Run())
+	if (!NewGame->Run()) // if can't run new game -> shut it down
 	{
 		NewGame->Shutdown();
-
 	}
 	
+	system("pause");
+	return 0;
+
+
+
+
+
+
+
+
 	/*Game game;
 
 	if (game.Initialize())
@@ -88,17 +93,17 @@ int main(int argc, char* argv[])
 	welcome.SetImageDimention(1, 1, 1280, 720);
 	welcome.SetSpriteDimention(1280, 720);
 
-	Sprite carkey;
+	Sprite carkey;++
 	carkey.Load("ASSETS/Images/car_key.png", Screen);
 	carkey.SetImageDimention(1, 1, 473, 418);
 	carkey.SetSpriteDimention(50, 50);
 
-	Sprite papers;
+	Sprite papers;++
 	papers.Load("ASSETS/Images/papers.png", Screen);
 	papers.SetImageDimention(1, 1, 1037, 789);
 	papers.SetSpriteDimention(80, 80);
 
-	Sprite sign;
+	Sprite sign;++
 	sign.Load("ASSETS/Images/sign.png", Screen);
 	sign.SetImageDimention(1, 1, 480, 480);
 	sign.SetSpriteDimention(100, 100);
@@ -314,7 +319,6 @@ int main(int argc, char* argv[])
 	Screen.Shutdown();
 	*/
 
-	system("pause");
-	return 0;
+
 	
 }

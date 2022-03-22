@@ -27,9 +27,9 @@ private:
 
 	std::unique_ptr<GameState> m_gameState;
 
-	Screen ekranas;
-	Input Input;
-	Music muzika;
-	Text sriftas;
+	Screen screen; // output screen window
+	Input input;
+	Music music;  //music all
+	Text text; //any font-style
 
 };

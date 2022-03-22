@@ -5,25 +5,26 @@
 #include "Background.h"
 #include "Input.h"
 
-class MenuState : public GameState
+
+class HelloState : public GameState
 {
 
 public:
 
-	~MenuState() override {}
+	~HelloState() override {}
 
 	bool OnEnter() override;
 	GameState* Update() override;
 	bool Render() override;
 	void OnExit() override;
 
-	bool userClicksPlayGameButton;
+	bool userClicksSecretButton;
 	bool userClicksExitGameButton;
 
 private:
 
 	//All menu stuff declared here!
-
-
+	Screen& m_screen;
+	Sprite m_image;
 
 };

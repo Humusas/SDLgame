@@ -14,15 +14,14 @@ Game::Game()
 bool Game::Initialize()
 {
 	//Init screen 
-	if (!ekranas.Initialize("My game", 1280, 720)) //initializes a black screen and checks if not initialized
+	if (!screen.Initialize("My game", 1280, 720)) //initializes a black screen and checks if not initialized
 	{
 		return 0;
 	}
 	std::cout << "Hello, user. Game screen size is 1280x720. Enjoy" << std::endl;
-	system("pause");
 
-	muzika.Initialize();
-	sriftas.Initialize();
+	music.Initialize();
+	text.Initialize();
 	
 	//Init third-party libraries
 
@@ -35,30 +34,15 @@ bool Game::Run()
 
 	while (m_gameState)  //will break if m_gameState == nullptr
 	{
-
-		if (Input.isWindowClosed())
-		{
-			//isGameRunning = false;
-		}
-		if (Input.GetKeyDown() == SDLK_ESCAPE)  //close game window with Esc button
-		{
-			//isGameRunning = false;
-		}
-
-		MousePos MousePos = Input.GetMousePosition();
-		std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
-
-		Input.Update();//update keyboard buttons or mouse clicks
-
-
-
+		input.Update();//update keyboard buttons or mouse clicks
 		//clearing the screen
 
-		//updating the input
+		screen.Clear();
 
 		//checking delta time
 
 		//updating the current game state
+		
 
 		//current game state will return a pointer to a different state if a switch is required 
 		//If no switch is required then the current states pointer is returned
@@ -79,6 +63,8 @@ bool Game::Run()
 		}
 
 		//rendering the screen
+		screen.GetRenderer();
+
 	}
 
 	return true;
@@ -87,4 +73,6 @@ bool Game::Run()
 void Game::Shutdown()
 {
 	//Close down everything you initialized in init()
+	screen.Shutdown();
+	music.Shutdown();
 }
