@@ -25,30 +25,23 @@
 #include <iostream>
 #include <memory> // to have heap memory
 #include "Game.h"
+#include "HelloState.h"
+#include "GameState.h"
 
 
 int main(int argc, char* argv[]) 
 {
 	//do not use raw pointers. use smart ones instead. to have game on the heap:
-	std::unique_ptr<Game> NewGame = std::make_unique<Game>();
+	std::unique_ptr<Game> game = std::make_unique<Game>();
 
-	if (!NewGame->Initialize())
+	if (game->Initialize())
 	{
-	}
-	if (!NewGame->Run()) // if can't run new game -> shut it down
-	{
-		NewGame->Shutdown();
+		game->Run(new HelloState); // if can't run new game -> shut it down
+		game->Shutdown();
 	}
 	
 	system("pause");
 	return 0;
-
-
-
-
-
-
-
 
 	/*Game game;
 
@@ -62,23 +55,13 @@ int main(int argc, char* argv[])
 /*
 int main(int argc, char* argv[])
 {
-	std::cout << "Hello, user. Game screen size is 1280x720. Enjoy" << std::endl;
-	system("pause");
+	
 
 	Screen Screen;
 	Input Input;
 
-	Music::Initialize();
-	Text::Initialize();
 
-	//========================================================================================
-	//create SDL environment ant create new game window
-	//========================================================================================
 
-	if (!Screen.Initialize("My game", 1280, 720)) //initializes a black screen and checks if not initialized
-	{
-		return 0;
-	}
 
 	//=============================================================================================================
 	//Main game loop

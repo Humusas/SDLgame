@@ -1,7 +1,7 @@
 #include "PlayState.h"
 #include "MenuState.h"
 
-bool PlayState::OnEnter()
+bool PlayState::OnEnter(Screen& screen)
 {
 	//Load assets for player and enemy
 	//Load all music for game
@@ -28,7 +28,7 @@ GameState* PlayState::Update()
 	return this;
 }
 
-bool PlayState::Render()
+bool PlayState::Render(Screen& screen)
 {
 	//Render player
 	//render enemy

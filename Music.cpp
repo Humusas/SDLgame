@@ -8,6 +8,7 @@ bool Music::Initialize()
 		std::cout << "Error initializing audio stream" << std::endl;
 		return false;
 	}
+	std::cout << "Music initialized" << std::endl;
 	return true;
 }
 

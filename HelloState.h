@@ -1,30 +1,29 @@
 #pragma once
+#include <iostream>
 
-#include "GameState.h"
-#include "Sprite.h"
 #include "Background.h"
 #include "Input.h"
-
+#include "GameState.h"
+#include "MenuState.h"
+#include "Game.h"
+#include "Sprite.h"
 
 class HelloState : public GameState
 {
 
 public:
-
+	
 	~HelloState() override {}
 
-	bool OnEnter() override;
-	GameState* Update() override;
-	bool Render() override;
+	bool OnEnter(Screen& screen) override;
+	bool Render(Screen& screen) override;
 	void OnExit() override;
 
-	bool userClicksSecretButton;
-	bool userClicksExitGameButton;
+	GameState* Update() override;
 
 private:
 
 	//All menu stuff declared here!
-	Screen& m_screen;
 	Sprite m_image;
-
+	Input m_input;
 };

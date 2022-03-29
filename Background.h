@@ -11,7 +11,6 @@ class Background : public GameObject //background IS A game object
 {
 public:
 
-
 	//constructor, deconst.
 	Background(Screen& screen);
 	~Background();

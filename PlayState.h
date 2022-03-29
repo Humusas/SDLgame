@@ -9,10 +9,11 @@ public:
 
 	~PlayState() override {}
 
-	bool OnEnter() override;
-	GameState* Update() override;
-	bool Render() override;
+	bool OnEnter(Screen& screen) override;
+	bool Render(Screen& screen) override;
 	void OnExit() override;
+
+	GameState* Update() override;
 
 private:
 

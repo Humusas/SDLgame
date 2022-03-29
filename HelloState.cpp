@@ -1,11 +1,9 @@
-#include <iostream>
-#include "MenuState.h"
 #include "HelloState.h"
 
-bool HelloState::OnEnter()
+bool HelloState::OnEnter(Screen& screen)
 {
 	//Load backdrop image
-	m_image.Load("Assets/Images/wilcomen.png",m_screen);
+	m_image.Load("Assets/Images/wilcomen.png", screen);
 	m_image.SetImageDimention(1, 1, 1280, 720);
 	m_image.SetSpriteDimention(1280, 720);
 
@@ -21,32 +19,42 @@ bool HelloState::OnEnter()
 
 GameState* HelloState::Update()
 {
-	//	MousePos MousePos = input.GetMousePosition();
-	//	std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
+	MousePos MousePos = m_input.GetMousePosition();
+		std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
+		
+		if (MousePos.x > 650 && MousePos.x < 700)
+		{
+			if (MousePos.y > 550 && MousePos.y < 600 && m_input.isMouseClicked() == true)
+			{
+				std::cout << "target hit" << std::endl;
+				return new MenuState;
+			}
+		}
 
 		//Check keypress and mouse clicks
 		//check if buttons are clicked on
 		//check if user scrolls up or down a menu
 
-	if (userClicksSecretButton)
+	/*if (userClicksSecretButton)
 	{
-		return new MenuState;
 	}
 
 	if (userClicksExitGameButton)
 	{
 		return nullptr;
-	}
+	}*/
 
 	return this;
 }
 
-bool HelloState::Render()
+bool HelloState::Render(Screen& screen)
 {
-
+	m_image.Render(0, 0, 0.0f,screen, Sprite::Flip::NO_FLIP);
 	//render all buttons
+//	m_screen.GetRenderer();
 	//render menu text
+
 
 	return false;
 }

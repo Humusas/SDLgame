@@ -5,7 +5,7 @@
 
 
 
-bool MenuState::OnEnter()
+bool MenuState::OnEnter(Screen& screen)
 {
 	//Background garage(Screen m_screen)
 
@@ -41,7 +41,7 @@ GameState* MenuState::Update()
 	//check if buttons are clicked on
 	//check if user scrolls up or down a menu
 
-	if (userClicksPlayGameButton)
+/*	if (userClicksPlayGameButton)
 	{
 		return new PlayState;
 	}
@@ -49,12 +49,12 @@ GameState* MenuState::Update()
 	if (userClicksExitGameButton)
 	{
 		return nullptr;
-	}
+	}*/
 
 	return this;
 }
 
-bool MenuState::Render()
+bool MenuState::Render(Screen& screen)
 {
 
 	//render all buttons

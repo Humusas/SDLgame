@@ -9,6 +9,7 @@ bool Text::Initialize()
 		std::cout << "Error initializing text" << std::endl;
 		return false;
 	}
+	std::cout << "Text initialized" << std::endl;
 	return true;
 }
 
