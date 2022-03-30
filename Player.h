@@ -14,8 +14,17 @@ class Player : public GameObject //player IS A game object
 {
 public:
 
-	enum Direction { LEFT, RIGHT };
-	enum State { IDLE, ACCELERATING, BRAKING, CRASH, TOTAL_STATES };
+	enum class Direction
+	{	Left,
+		Right
+	};
+	enum  class State
+	{
+		Idle,
+		Acellerating,
+		Braking,
+		Crash,
+		Total_States };
 
 	//constructor, deconst.
 	Player(Screen& screen);
@@ -25,7 +34,7 @@ public:
 
 	const BoxCollider& GetCollider() const;
 
-	void SetDirection(Direction);
+	void SetDirection(Vector2D direction);
 	void SetVelocity(int velocity);
 
 	virtual void Update(Input& input);

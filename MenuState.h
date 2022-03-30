@@ -15,7 +15,7 @@ public:
 	bool Render(Screen& screen) override;
 	void OnExit() override;
 
-	GameState* Update(Input& input) override;
+	GameState* Update(Input& input, Screen& screen) override;
 
 private:
 

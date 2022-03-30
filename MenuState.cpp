@@ -25,7 +25,7 @@ bool MenuState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* MenuState::Update(Input& input)
+GameState* MenuState::Update(Input& input, Screen& screen)
 {
 	MousePos MousePos = input.GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
@@ -51,7 +51,7 @@ GameState* MenuState::Update(Input& input)
 		{
 			input.MouseSound();
 			std::cout << "target hit" << std::endl;
-			return  new PlayState; //game play screen
+			return new PlayState(); //game play screen
 		}
 	}
 

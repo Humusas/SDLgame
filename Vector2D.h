@@ -1,7 +1,8 @@
 #pragma once
 
 class Vector2D
-{//constructor
+{
+	//constructor
 public:
 	Vector2D(int x = 0, int y = 0); //created empty as 0.0
 

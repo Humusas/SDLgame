@@ -35,10 +35,6 @@ int main(int argc, char* argv[])
 	//Main game loop
 	//=============================================================================================================
 
-	
-
-
-
 	Player gto(Screen);
 	gto.SetPosition(1, 419); //if y 418 it moves left automode ???
 	gto.SetVelocity(5);
