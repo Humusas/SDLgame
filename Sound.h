@@ -16,5 +16,4 @@ public:
 private:
 
 	Mix_Chunk* m_sound;
-
 };

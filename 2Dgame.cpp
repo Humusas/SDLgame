@@ -1,26 +1,11 @@
-/*#include <SDL.h>  ++
-#include <string>
-#include "Background.h"
-#include "Background2.h"
+/*
 #include "BoxCollider.h"
 #include "Cop.h"
-#include "GameObject.h"
-#include "Input.h"
-#include "Music.h"
 #include "Player.h"
 #include "Score.h"
-#include "Screen.h"
-#include "Sprite.h" ++
-#include "Sound.h"
 #include "Text.h"
 #include "Vector2D.h"
-#include "GameState.h"
-#include "MenuState.h"
-#include "PlayState.h"*/
-
-//bool isGameRunning = true;
-//int game_screen = 0;
-
+*/
 
 #include <iostream>
 #include <memory> // to have heap memory
@@ -28,73 +13,31 @@
 #include "HelloState.h"
 #include "GameState.h"
 
-
 int main(int argc, char* argv[]) 
 {
 	//do not use raw pointers. use smart ones instead. to have game on the heap:
-	std::unique_ptr<Game> game = std::make_unique<Game>();
+	std::unique_ptr<Game> NewGame = std::make_unique<Game>();
 
-	if (game->Initialize())
+	if (NewGame->Initialize())
 	{
-		game->Run(new HelloState); // if can't run new game -> shut it down
-		game->Shutdown();
+		NewGame->Run(new HelloState); // if can't run new game -> shut it down
+		NewGame->Shutdown();
 	}
 	
-	system("pause");
 	return 0;
-
-	/*Game game;
-
-	if (game.Initialize())
-	{
-		game.Run();
-		game.Shutdown();
-	}*/
 
 
 /*
 int main(int argc, char* argv[])
 {
 	
-
-	Screen Screen;
-	Input Input;
-
-
-
-
 	//=============================================================================================================
 	//Main game loop
 	//=============================================================================================================
 
-	Background forest(Screen);
-	Background2 garage(Screen);
+	
 
 
-	Sprite welcome; //game by humusas
-	welcome.Load("ASSETS/Images/wilcomen.png", Screen);
-	welcome.SetImageDimention(1, 1, 1280, 720);
-	welcome.SetSpriteDimention(1280, 720);
-
-	Sprite carkey;++
-	carkey.Load("ASSETS/Images/car_key.png", Screen);
-	carkey.SetImageDimention(1, 1, 473, 418);
-	carkey.SetSpriteDimention(50, 50);
-
-	Sprite papers;++
-	papers.Load("ASSETS/Images/papers.png", Screen);
-	papers.SetImageDimention(1, 1, 1037, 789);
-	papers.SetSpriteDimention(80, 80);
-
-	Sprite sign;++
-	sign.Load("ASSETS/Images/sign.png", Screen);
-	sign.SetImageDimention(1, 1, 480, 480);
-	sign.SetSpriteDimention(100, 100);
-
-	Sprite credits;
-	credits.Load("ASSETS/Images/credits.png", Screen);
-	credits.SetImageDimention(1, 1, 1200, 532);
-	credits.SetSpriteDimention(1280, 720);
 
 	Player gto(Screen);
 	gto.SetPosition(1, 419); //if y 418 it moves left automode ???
@@ -128,33 +71,8 @@ int main(int argc, char* argv[])
 			isGameRunning = false;
 		}
 
-		MousePos MousePos = Input.GetMousePosition();
-		//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
-
-		Input.Update();//update keyboard buttons or mouse clicks
-
 		switch (game_screen)
 		{
-		case 0: // 2D Game by Humusas
-		{
-			//std::cout << "case 0" << std::endl;
-			Screen.Clear(); //clear screen (frame buffer)
-
-			welcome.Render(0, 0, 0.0, Screen, Sprite::NO_FLIP);
-
-			if (MousePos.x > 650 && MousePos.x < 700)
-			{
-				if (MousePos.y > 550 && MousePos.y < 600 && Input.isMouseClicked() == true)
-				{
-					Input.MouseSound();
-					std::cout << "target hit" << std::endl;
-					game_screen = 2; //game menu screen
-				}
-			}
-			Screen.Present();
-		}
-		break;
-
 		case 1: //game_screen = 1
 		{
 			//std::cout << "case 1" << std::endl;
@@ -210,52 +128,9 @@ int main(int argc, char* argv[])
 		}
 		break;
 
-		case 2:	//game_screen = 2 ============ game menu screen
-		{
-			//std::cout << "case2" << std::endl;
-			Screen.Clear();
-
-			garage.Update(Input);
-			garage.Render(Screen);
-
-			carkey.Update();
-			carkey.Render(400, 575, 25.0, Screen, Sprite::NO_FLIP);
-
-			papers.Update();
-			papers.Render(315, 529, 0.0, Screen, Sprite::NO_FLIP);
-
-			if (MousePos.x > 399 && MousePos.x < 456) //car key
-			{
-				if (MousePos.y > 582 && MousePos.y < 606 && Input.isMouseClicked() == true)
-				{
-					Input.MouseSound();
-					std::cout << "target hit" << std::endl;
-					game_screen = 1; //game play screen
-				}
-			}
-
-			if (MousePos.x > 321 && MousePos.x < 391) //pile of papers
-			{
-				if (MousePos.y > 534 && MousePos.y < 581 && Input.isMouseClicked() == true)
-				{
-					Input.MouseSound();
-					std::cout << "target hit" << std::endl;
-					game_screen = 3; //game credits screen
-				}
-			}
-
-			Screen.Present();
-		}
-		break;
-
 		case 3://credits and thank you notes
 		{
 			Screen.Clear();
-
-			credits.Render(0, 0, 0.0, Screen, Sprite::NO_FLIP);
-
-			sign.Update();
-			sign.Render(1161, 600, 0.0, Screen, Sprite::NO_FLIP);
 
 			if (MousePos.x > 1161 && MousePos.x < 1261) //sign
 			{
@@ -301,7 +176,5 @@ int main(int argc, char* argv[])
 
 	Screen.Shutdown();
 	*/
-
-
 	
 }

@@ -16,6 +16,7 @@ public:
 	~Background();
 
 	void BackgroundMusic();
+	void BackgroundImage();
 
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
@@ -25,8 +26,6 @@ public:
 private:
 
 	Music m_music;
-
 	BoxCollider m_collider;
-
 	Sprite m_image; //containment: background HAS AN image 
 };

@@ -2,6 +2,7 @@
 #include "Background.h"
 #include "Music.h"
 #include "BoxCollider.h"
+#include "Image.h"
 
 Background::Background(Screen& screen)
 {
@@ -43,4 +44,10 @@ const BoxCollider& Background::GetCollider() const
 void Background::BackgroundMusic()
 {
 	m_music.Play(Music::PlayLoop::Play_Endless);
+}
+
+void Background::BackgroundImage()
+{
+	
+
 }

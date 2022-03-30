@@ -41,7 +41,7 @@ void Music::Unload()
 void Music::SetVolume(int volume)
 {
 	//float normalizedValue = 0;
-	Mix_VolumeMusic(volume);
+	Mix_VolumeMusic(volume); //0-128
 }
 
 void Music::Play(PlayLoop playLoop)

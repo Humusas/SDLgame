@@ -7,9 +7,7 @@ Background2::Background2(Screen& screen)
 	m_image.Load("ASSETS/Images/garage.jpg", screen);
 	m_image.SetImageDimention(1, 1, 1920, 1080);
 	m_image.SetSpriteDimention(1280, 720);
-	
-	
-	
+		
 }
 
 Background2::~Background2()
@@ -21,7 +19,6 @@ Background2::~Background2()
 
 void Background2::Update(Input& input)
 {
-	
 
 	m_collider.SetDimension(m_size.x, m_size.y);
 	m_collider.SetPosition(m_position.x, m_position.y);

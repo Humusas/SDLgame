@@ -1,6 +1,4 @@
 #pragma once
-
-//#include <memory>
 #include <SDL.h>
 #include <iostream>
 #include <string>
@@ -12,7 +10,6 @@
 
 class Game
 {
-
 public:
 
 	//Game(GameState* initialState);

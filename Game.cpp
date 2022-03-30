@@ -34,10 +34,11 @@ bool Game::Run(GameState* initialState)
 		//checking delta time
 
 		
-		//updating the current game state*******************************************
+//************************************************updating the current game state*******************************************
+	
 		//current game state will return a pointer to a different state if a switch is required 
 		//If no switch is required then the current states pointer is returned
-		GameState* nextState = m_gameState->Update(); 
+		GameState* nextState = m_gameState->Update(input); 
 
 		m_gameState->Render(screen);
 

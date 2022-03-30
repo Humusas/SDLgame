@@ -148,12 +148,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="2Dgame.cpp" />
-    <ClCompile Include="Background.cpp" />
-    <ClCompile Include="Background2.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cop.cpp" />
     <ClCompile Include="Credits.cpp" />
+    <ClCompile Include="CreditsState.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -171,11 +170,10 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Background.h" />
-    <ClInclude Include="Background2.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Cop.h" />
     <ClInclude Include="Credits.h" />
+    <ClInclude Include="CreditsState.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />

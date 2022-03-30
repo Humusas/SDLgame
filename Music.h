@@ -13,7 +13,6 @@ public:
 
 	Music();
 
-
 	bool Load(const std::string& filename);
 	void Unload();
 

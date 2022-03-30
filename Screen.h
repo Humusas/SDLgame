@@ -13,7 +13,6 @@ public:
 	//Behaviour
 public:
 
-	//const std::string&window_title="<no name>", int width= 1250, int height= 500
 	bool Initialize(const std::string& windowTitle = "<No name>", int width = 1000, int height = 1000);
 	void Shutdown();
 	void Present();
