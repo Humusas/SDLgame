@@ -14,7 +14,7 @@ void GameState::OnExit()
 {
 }
 
-GameState* GameState::Update(Input& input)
+GameState* GameState::Update(Input& input, Screen& screen)
 {
 	return this;
 }

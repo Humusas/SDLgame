@@ -3,10 +3,18 @@
 #include "Input.h"
 #include "Sound.h"
 
+Input* Input::Instance()
+{
+	static Input* inputObject = new Input();
+	return inputObject;
+	std::cout << "Input object created" << std::endl;
+}
+
 Input::Input()
 {
 	std::cout << "Input created" << std::endl;
 }
+
 
 char Input::GetKeyUp()
 {

@@ -51,7 +51,7 @@ GameState* MenuState::Update(Input& input, Screen& screen)
 		{
 			input.MouseSound();
 			std::cout << "target hit" << std::endl;
-			return new PlayState(); //game play screen
+			return new PlayState; //game play screen
 		}
 	}
 

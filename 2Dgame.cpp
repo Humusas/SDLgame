@@ -22,15 +22,13 @@ int main(int argc, char* argv[])
 	{
 		NewGame->Run(new HelloState); // if can't run new game -> shut it down
 		NewGame->Shutdown();
-	}
-	
+	}	
 	return 0;
 
 
 /*
 int main(int argc, char* argv[])
 {
-	
 	//=============================================================================================================
 	//Main game loop
 	//=============================================================================================================
@@ -101,14 +99,11 @@ int main(int argc, char* argv[])
 				game_screen = 4;
 				cop.SetDirection(Cop::Direction::LEFT);
 				cop.SetVelocity(100);
-				cop.GetPosition();
-				
+				cop.GetPosition();		
 			}
-
 			if (playerCollider.IsColliding(copCollider))
 			{
 				std::cout << "Collision!" << std::endl;
-
 			}
 			else
 			{
@@ -156,11 +151,9 @@ int main(int argc, char* argv[])
 					game_screen = 2; //game menu screen
 				}
 			}
-
 			Screen.Present();
 		}
 		break;
-
 		}
 	}
 
@@ -169,8 +162,6 @@ int main(int argc, char* argv[])
 	//==============================================================================================================
 
 	delete score;
-
 	Screen.Shutdown();
 	*/
-	
 }

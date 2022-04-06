@@ -18,13 +18,15 @@ public:
 	{	Left,
 		Right
 	};
+
 	enum  class State
 	{
 		Idle,
 		Acellerating,
 		Braking,
 		Crash,
-		Total_States };
+		Total_States
+	};
 
 	//constructor, deconst.
 	Player(Screen& screen);
@@ -41,6 +43,7 @@ public:
 	virtual void Render(Screen& screen);
 
 private:
+
 	Sprite m_image;
 	State m_state;
 

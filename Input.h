@@ -12,7 +12,10 @@ class Input  //keyboard, mouse
 {
 	//constructor
 public:
-	Input();
+
+	static Input* Instance(); //singleton
+
+//	Input();
 
 	bool isKeyPressed();
 	bool isMouseClicked();
@@ -32,6 +35,10 @@ public:
 	void Update();
 
 private:
+
+	Input();							//constructor
+	Input(const Input&);				//copy constructor
+	Input& operator=(const Input&);		//assignment operator
 
 	Sound m_mouseSound;
 

@@ -9,6 +9,7 @@
 class GameObject
 {
 public:
+
 	GameObject();
 
 	//Getter, setter
@@ -31,6 +32,7 @@ public:
 	virtual void Render(Screen& screen) = 0;
 
 protected:
+
 	std::string m_tag;
 	float m_angle;
 	Vector2D m_position;   //x y in a struct

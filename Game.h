@@ -14,7 +14,7 @@ public:
 
 	//Game(GameState* initialState);
 
-//	const std::string& filename - to initialize from file
+	//	const std::string& filename - to initialize from file
 	bool Initialize();	//set everything here. physics, audio, screen.
 	bool Run(GameState* initialState);			//if game stops running. everything runs here
 	void Shutdown();    //shutdown all that was initialized 

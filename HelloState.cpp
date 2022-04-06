@@ -17,7 +17,7 @@ bool HelloState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* HelloState::Update(Input& input)
+GameState* HelloState::Update(Input& input, Screen& screen)
 {
 	MousePos MousePos = input.GetMousePosition(); //works
 		

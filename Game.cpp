@@ -4,13 +4,13 @@
 bool Game::Initialize()
 {
 	//Init screen 
-	if (!screen.Initialize("New game", 1280, 720)) //initializes a black screen and checks if not initialized
+	if(!Screen::Instance()->Initialize("New game", 1280, 720))//initializes a black screen and checks if not initialized
 	{
 		return 0;
 	}
+
 	music.Initialize();
 	text.Initialize();
-
 
 	//Init third-party libraries
 	std::cout << "Initialize finished" << std::endl;
@@ -25,20 +25,18 @@ bool Game::Run(GameState* initialState)
 
 	while (m_gameState)  //will break if m_gameState == nullptr
 	{
-		input.Update();//update keyboard buttons or mouse clicks
-		//clearing the screen
-		input.isMouseClicked();
-		input.GetKeyDown();
-		screen.Clear();
+		Input::Instance()->Update();	//update keyboard buttons or mouse clicks
+		Screen::Instance()->Clear();	//clearing the screen
+		Input::Instance()->isMouseClicked();
+		Input::Instance()->GetKeyDown();
 
 		//checking delta time
-
 		
 //************************************************updating the current game state*******************************************
 	
 		//current game state will return a pointer to a different state if a switch is required 
 		//If no switch is required then the current states pointer is returned
-		GameState* nextState = m_gameState->Update(input); 
+		GameState* nextState = m_gameState->Update(input, screen); 
 
 		m_gameState->Render(screen);
 
@@ -53,18 +51,16 @@ bool Game::Run(GameState* initialState)
 				m_gameState->OnEnter(screen);
 			}
 		}
-
 		//rendering the screen
-		screen.Present();
+		Screen::Instance()->Present();
 	}
-
 	return true;
 }
 
 void Game::Shutdown()
 {
 	//Close down everything you initialized in init()
-	screen.Shutdown();
+	Screen::Instance()->Shutdown();
 	music.Shutdown();
 	text.Unload();
 }

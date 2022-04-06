@@ -4,14 +4,12 @@
 
 class Screen
 {
-	//Getter, setter
 public:
 
 	//void SetWidth;
 	//void SetHeight;
-
-	//Behaviour
-public:
+	
+	static Screen* Instance(); //singleton
 
 	bool Initialize(const std::string& windowTitle = "<No name>", int width = 1000, int height = 1000);
 	void Shutdown();
@@ -22,6 +20,11 @@ public:
 
 	//State
 private:
+
+	Screen() {};						//constructor
+	Screen(const Screen&);				//copy constructor
+	Screen& operator=(const Screen&);   //assignment operator
+
 	//int m_width = 1000;
 	//int m_height = 750;
 

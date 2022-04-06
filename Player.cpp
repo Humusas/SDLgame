@@ -3,8 +3,9 @@
 #include "Vector2D.h"
 #include "Music.h"
 #include "Score.h"
+#include "Screen.h"
 
-Player::Player(Screen& screen) : m_screen(screen)
+Player::Player(Screen& screen)// : m_screen(screen)
 {
 	std::cout << "Player created" << std::endl;
 	//m_state = IDLE;

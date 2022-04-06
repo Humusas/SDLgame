@@ -14,7 +14,7 @@ bool CreditsState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* CreditsState::Update(Input& input)
+GameState* CreditsState::Update(Input& input, Screen& screen)
 {
 	MousePos MousePos = input.GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;

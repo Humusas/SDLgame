@@ -16,7 +16,7 @@ bool PlayState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* PlayState::Update(Input& input)
+GameState* PlayState::Update(Input& input, Screen& screen)
 {
 
 	//All main game mechanics are updated here
