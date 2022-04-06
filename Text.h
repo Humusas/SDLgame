@@ -22,7 +22,7 @@ public:
 	void SetDimension(int width, int height);
 
 	bool Load(const std::string& filename, int fontSize);
-	void Render(int xPos, int yPos, Screen& screen);
+	void Render(int xPos, int yPos);
 	void Unload();
 
 private:

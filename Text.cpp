@@ -75,7 +75,7 @@ bool Text::Load(const std::string& filename, int fontsize)
 	return true;
 }
 
-void Text::Render(int xPos, int yPos, Screen& screen)
+void Text::Render(int xPos, int yPos)
 {
 	//we create text in rectangular
 	SDL_Rect targetRect;
@@ -89,12 +89,12 @@ void Text::Render(int xPos, int yPos, Screen& screen)
 	{
 		SDL_DestroyTexture(m_texture); //destroy old texture
 		SDL_Surface* textData = TTF_RenderText_Blended(m_font, m_text.c_str(), m_color); //makes text as an image 
-		m_texture = SDL_CreateTextureFromSurface(screen.GetRenderer(), textData);
+		m_texture = SDL_CreateTextureFromSurface(Screen::Instance()->GetRenderer(), textData);
 		SDL_FreeSurface(textData);
 		m_isDirty = false;
 	}
 
-	SDL_RenderCopy(screen.GetRenderer(), m_texture, nullptr, &targetRect);
+	SDL_RenderCopy(Screen::Instance()->GetRenderer(), m_texture, nullptr, &targetRect);
 }
 
 void Text::Unload()

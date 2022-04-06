@@ -1,9 +1,9 @@
 #include "HelloState.h"
 
-bool HelloState::OnEnter(Screen& screen)
+bool HelloState::OnEnter()
 {
 	//Load backdrop image
-	m_image.Load("Assets/Images/wilcomen.png", screen);
+	m_image.Load("Assets/Images/wilcomen.png");
 	m_image.SetImageDimention(1, 1, 1280, 720);
 	m_image.SetSpriteDimention(1280, 720);
 
@@ -17,29 +17,29 @@ bool HelloState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* HelloState::Update(Input& input, Screen& screen)
+GameState* HelloState::Update()
 {
-	MousePos MousePos = input.GetMousePosition(); //works
+	MousePos MousePos = Input::Instance()->GetMousePosition(); //works
 		
 	if (MousePos.x > 650 && MousePos.x < 700)
 	{
-		if (MousePos.y > 550 && MousePos.y < 600 && input.isMouseClicked() == true)
+		if (MousePos.y > 550 && MousePos.y < 600 && Input::Instance()->isMouseClicked() == true)
 		{
-			input.MouseSound();
+			Input::Instance()->MouseSound();
 			return new MenuState;
 		}
 	}
 	
-	if (input.isMouseClicked() == true)
+	if (Input::Instance()->isMouseClicked() == true)
 	{
-		input.MouseSound();
+		Input::Instance()->MouseSound();
 		std::cout << "mouse clicked" << std::endl;
 	}
 
-	if (input.isKeyPressed() == true)
+	if (Input::Instance()->isKeyPressed() == true)
 	{
 		//std::cout << input.GetKeyDown() << std::endl;
-		if (input.GetKeyDown() == SDLK_ESCAPE)
+		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
 		{
 			return nullptr;
 		}
@@ -48,9 +48,9 @@ GameState* HelloState::Update(Input& input, Screen& screen)
 	return this;
 }
 
-bool HelloState::Render(Screen& screen)
+bool HelloState::Render()
 {
-	m_image.Render(0, 0, 0.0f,screen, Sprite::Flip::NO_FLIP);
+	m_image.Render(0, 0, 0.0f, Sprite::Flip::NO_FLIP);
 	//render all buttons
 	//render menu text
 

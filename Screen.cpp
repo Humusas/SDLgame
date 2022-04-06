@@ -5,13 +5,8 @@
 Screen* Screen::Instance()
 {
 	static Screen* screenObject = new Screen();
+	
 	return screenObject;
-	std::cout << "Screen object created" << std::endl;
-}
-
-Screen::Screen()
-{
-	std::cout << "Screen class created" << std::endl;
 }
 
 bool Screen::Initialize(const std::string& windowTitle, int width, int height) //has to be bool (T/F)

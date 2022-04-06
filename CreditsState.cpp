@@ -1,9 +1,9 @@
 #include <iostream>
 #include "CreditsState.h"
 
-bool CreditsState::OnEnter(Screen& screen)
+bool CreditsState::OnEnter()
 {
-	m_sign.Load("ASSETS/Images/sign.png", screen);
+	m_sign.Load("ASSETS/Images/sign.png");
 	m_sign.SetImageDimention(1, 1, 480, 480);
 	m_sign.SetSpriteDimention(100, 100);
 	
@@ -14,22 +14,22 @@ bool CreditsState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* CreditsState::Update(Input& input, Screen& screen)
+GameState* CreditsState::Update()
 {
-	MousePos MousePos = input.GetMousePosition();
+	MousePos MousePos = Input::Instance()->GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
 	//check if user scrolls up or down a menu
 
-	if (input.isMouseClicked() == true)
+	if (Input::Instance()->isMouseClicked() == true)
 	{
 		std::cout << "mouse clicked" << std::endl;
 	}
 
-	if (input.isKeyPressed() == true)
+	if (Input::Instance()->isKeyPressed() == true)
 	{
 		//std::cout << input.GetKeyDown() << std::endl;
-		if (input.GetKeyDown() == SDLK_ESCAPE)
+		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
 		{
 			return nullptr;
 		}
@@ -38,10 +38,10 @@ GameState* CreditsState::Update(Input& input, Screen& screen)
 	return this;
 }
 
-bool CreditsState::Render(Screen& screen)
+bool CreditsState::Render()
 {
 	//m_credits.Render(0, 0, 0.0, screen, Sprite::Flip:: NO_FLIP);
-	m_sign.Render(1161, 600, 0.0f, screen, Sprite::Flip:: NO_FLIP);
+	m_sign.Render(1161, 600, 0.0f, Sprite::Flip:: NO_FLIP);
 
 	//render menu text
 
@@ -50,7 +50,6 @@ bool CreditsState::Render(Screen& screen)
 
 void CreditsState::OnExit()
 {
-	
 	m_sign.Unload();
 	//unload all music, text, sprites for this state
 	//~m_background();

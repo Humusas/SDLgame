@@ -1,9 +1,9 @@
 #include "PlayState.h"
 #include "MenuState.h"
 
-bool PlayState::OnEnter(Screen& screen)
+bool PlayState::OnEnter()
 {	
-	m_backgroundImage.Load("ASSETS/Images/forest.png", screen);
+	m_backgroundImage.Load("ASSETS/Images/forest.png");
 	m_backgroundImage.SetImageDimention(1, 1, 1920, 1080);
 	m_backgroundImage.SetSpriteDimention(1280, 720);
 
@@ -16,15 +16,15 @@ bool PlayState::OnEnter(Screen& screen)
 	return true;
 }
 
-GameState* PlayState::Update(Input& input, Screen& screen)
+GameState* PlayState::Update()
 {
 
 	//All main game mechanics are updated here
-	m_player.Update(input);
-	if (input.isKeyPressed() == true)
+	m_player.Update();
+	if (Input::Instance()->isKeyPressed() == true)
 	{
 		//std::cout << input.GetKeyDown() << std::endl;
-		if (input.GetKeyDown() == SDLK_ESCAPE)
+		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
 		{
 			return nullptr;
 		}
@@ -33,15 +33,15 @@ GameState* PlayState::Update(Input& input, Screen& screen)
 	return this;
 }
 
-bool PlayState::Render(Screen& screen)
+bool PlayState::Render()
 {
-	m_backgroundImage.Render(0, 0, 0.0f, screen, Sprite::Flip::NO_FLIP);
+	m_backgroundImage.Render(0, 0, 0.0f, Sprite::Flip::NO_FLIP);
 	//Render player
-	//m_player.Render(10, 10, 0.0f, screen, Sprite::Flip::NO_FLIP);
+	m_player.Render();
 	//render enemy
 	//render ...
-	m_player.Render(screen);
-
+	//m_player.Render(screen);
+	
 	return true;
 }
 

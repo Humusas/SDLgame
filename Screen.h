@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <string>
+#include <iostream>
 
 class Screen
 {
@@ -21,7 +22,7 @@ public:
 	//State
 private:
 
-	Screen() {};						//constructor
+	Screen() { std::cout << "Screen object created" << std::endl; };						//constructor
 	Screen(const Screen&);				//copy constructor
 	Screen& operator=(const Screen&);   //assignment operator
 

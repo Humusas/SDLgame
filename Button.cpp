@@ -3,10 +3,10 @@
 #include "Sound.h"
 #include "BoxCollider.h"
 
-Button::Button(Screen& screen)
+Button::Button()
 {
 	std::cout << "Button created" << std::endl;
-	m_image.Load("ASSETS/Images/forest.png", screen);
+	m_image.Load("ASSETS/Images/forest.png");
 	m_image.SetImageDimention(1, 1, 1920, 1080);
 	m_image.SetSpriteDimention(1280, 720);
 
@@ -22,7 +22,7 @@ Button::~Button()
 	m_image.Unload();
 }
 
-void Button::Update(Input& input)
+void Button::Update()
 {
 	m_sound.SetVolume(3);
 
@@ -30,9 +30,9 @@ void Button::Update(Input& input)
 	m_collider.Update();
 }
 
-void Button::Render(Screen& screen)
+void Button::Render()
 {
-	m_image.Render(m_position.x, m_position.y, m_angle, screen, Sprite::Flip::NO_FLIP);
+	m_image.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
 }
 
 const BoxCollider& Button::GetCollider() const

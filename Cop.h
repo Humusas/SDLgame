@@ -14,7 +14,7 @@ public:
 	enum Direction	{ LEFT,RIGHT	};
 
 	//constructor, deconst.
-	Cop(Screen& screen);
+	Cop();
 	~Cop();
 
 	const BoxCollider& GetCollider() const;
@@ -22,8 +22,8 @@ public:
 	void SetDirection(Direction);
 	void SetVelocity(int velocity);
 
-	virtual void Update(Input& input);
-	virtual void Render(Screen& screen);
+	virtual void Update();
+	virtual void Render();
 
 private:
 
@@ -31,7 +31,7 @@ private:
 
 	BoxCollider m_collider;
 	Direction m_facingDirection;
-	Screen& m_screen;
+	//Screen& m_screen;
 	Sprite m_image; //containment: player HAS AN image 
 	Vector2D m_direction;
 };

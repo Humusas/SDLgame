@@ -8,13 +8,13 @@ class Button : public GameObject //button is a game object
 {
 public:
 
-	Button(Screen& screen);
+	Button();
 	~Button();
 
 	void ButtonSound(); //click sound when you press the button
 
-	virtual void Update(Input& input);
-	virtual void Render(Screen& screen);
+	virtual void Update();
+	virtual void Render();
 
 	const BoxCollider& GetCollider() const;
 

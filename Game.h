@@ -15,7 +15,7 @@ public:
 	//Game(GameState* initialState);
 
 	//	const std::string& filename - to initialize from file
-	bool Initialize();	//set everything here. physics, audio, screen.
+	bool Initialize(std::string gameName);	//set everything here. physics, audio, screen.
 	bool Run(GameState* initialState);			//if game stops running. everything runs here
 	void Shutdown();    //shutdown all that was initialized 
 
@@ -23,8 +23,8 @@ private:
 
 	std::unique_ptr<GameState> m_gameState;
 
-	Screen screen; // output screen window
-	Input input; //
+//	Screen screen; // output screen window
+//	Input input; //
 	Music music;  //music all
 	Text text; //any font-style
 

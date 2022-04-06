@@ -1,7 +1,5 @@
 #include "Score.h"
 
-
-
 Score::Score()
 {
 	m_text.Load("ASSETS/Fonts/Wabroye.ttf", 1000);
@@ -33,12 +31,12 @@ void Score::AddScore(int extraScore)
 	m_text.SetText(std::to_string(m_score));
 }
 
-void Score::Update(Input& input)
+void Score::Update()
 {
 	m_newScore = m_score;
 }
 
-void Score::Render(Screen& screen)
+void Score::Render()
 {
-	m_text.Render(50, 50, screen);
+	m_text.Render(50, 50);
 }

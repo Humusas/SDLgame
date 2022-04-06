@@ -11,8 +11,8 @@ public:
 
 	void SetCredits(std::string credits);
 
-	virtual void Update(Input& input);
-	virtual void Render(Screen& screen);
+	virtual void Update();
+	virtual void Render();
 
 
 private:

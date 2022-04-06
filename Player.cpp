@@ -3,14 +3,13 @@
 #include "Vector2D.h"
 #include "Music.h"
 #include "Score.h"
-#include "Screen.h"
 
-Player::Player(Screen& screen)// : m_screen(screen)
+Player::Player()
 {
 	std::cout << "Player created" << std::endl;
 	//m_state = IDLE;
 
-	m_image.Load("Assets/Images/judge.png", screen);
+	m_image.Load("Assets/Images/judge.png");
 	m_image.SetImageDimention(1, 1, 1080, 500);
 	m_image.SetSpriteDimention(270, 125);
 
@@ -76,9 +75,9 @@ void Player::SetVelocity(int velocity)
 	m_velocity = velocity;
 }
 
-void Player::Update(Input& input)
+void Player::Update()
 {
-	if (input.GetKeyDown() == SDL_SCANCODE_LEFT)//'a')
+	if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_LEFT)//'a')
 	{
 		m_facingDirection = Direction::Left;
 		m_direction.x = -1;
@@ -88,7 +87,7 @@ void Player::Update(Input& input)
 		
 		//m_position.x -= m_velocity; //floats on x axis
 	}
-	else if (input.GetKeyDown() == SDL_SCANCODE_RIGHT)// 'd')
+	else if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_RIGHT)// 'd')
 	{
 		m_facingDirection = Direction::Right;
 		m_direction.x = 1;
@@ -98,7 +97,7 @@ void Player::Update(Input& input)
 		
 		//m_position.x += m_velocity; //floats on x axis
 	}
-	else if (input.GetKeyDown() == SDL_SCANCODE_UP) //'w')
+	else if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_UP) //'w')
 	{
 		m_direction.x = 0;
 		m_direction.y = -1;
@@ -110,7 +109,7 @@ void Player::Update(Input& input)
 
 		//m_position.y -= m_velocity; //floats on x axis
 	}
-	else if (input.GetKeyDown() == SDL_SCANCODE_DOWN)//'s')
+	else if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_DOWN)//'s')
 	{
 		m_direction.x = 0;
 		m_direction.y = 1;
@@ -148,9 +147,8 @@ void Player::Update(Input& input)
 	
 }
 
-void Player::Render(Screen& screen)
+void Player::Render()
 {
 	//m_image[TOTAL_STATES].Render(m_position.x, m_position.y, m_angle, screen, Sprite::HO_FLIP); //doesnt flip
-	m_image.Render(m_position.x, m_position.y, m_angle, screen, Sprite::NO_FLIP); //doesnt flip
-
+	m_image.Render(m_position.x, m_position.y, m_angle, Sprite::NO_FLIP); //doesnt flip
 }

@@ -17,7 +17,7 @@ public:
 	Sprite();
 	~Sprite();
 
-	bool Load(const std::string& filename, Screen& screen);
+	bool Load(const std::string& filename);
 	void Unload();
 
 	void IsAnimated(bool flag);
@@ -30,7 +30,7 @@ public:
 	void SetAnimationVelocity(float velocity);
 
 	void Update(); //cut from sprite animation sheet 1 single shot
-	void Render(int xPos, int yPos, double angle, Screen& screen, Flip flip);
+	void Render(int xPos, int yPos, double angle, Flip flip);
 
 private:
 

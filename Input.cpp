@@ -5,16 +5,10 @@
 
 Input* Input::Instance()
 {
+	
 	static Input* inputObject = new Input();
 	return inputObject;
-	std::cout << "Input object created" << std::endl;
 }
-
-Input::Input()
-{
-	std::cout << "Input created" << std::endl;
-}
-
 
 char Input::GetKeyUp()
 {
@@ -68,8 +62,6 @@ void Input::Update()
 		{
 			m_isMouseClicked = true;
 			m_MouseButtonDown = events.button.button; //which button pressed
-			
-
 		}
 
 		else if (events.type == SDL_MOUSEBUTTONUP)

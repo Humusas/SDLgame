@@ -6,7 +6,6 @@ class Vector2D
 public:
 	Vector2D(int x = 0, int y = 0); //created empty as 0.0
 
-public:
 	Vector2D Add(const Vector2D& second);
 	Vector2D Subtract(const Vector2D& second);
 	Vector2D Divide(int divider);

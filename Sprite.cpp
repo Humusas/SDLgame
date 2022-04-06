@@ -29,7 +29,7 @@ Sprite::~Sprite()
 	std::cout << "Image destroyed" << std::endl;
 }
 
-void Sprite::Render(int xPos, int yPos, double angle, Screen& screen, Flip flip)
+void Sprite::Render(int xPos, int yPos, double angle, Flip flip)
 {
 	//if(!IsAnimationDead)
 
@@ -50,7 +50,7 @@ void Sprite::Render(int xPos, int yPos, double angle, Screen& screen, Flip flip)
 
 	SDL_Point centre{ m_spriteDimention.x * 0.5f, m_spriteDimention.y * 0.5f }; //vidurys sprite 
 
-	SDL_RenderCopyEx(screen.GetRenderer(), m_image, &sourceRect, &targetRect, angle, &centre, SDL_FLIP_NONE/* static_cast<SDL_RendererFlip>(flip)*/);
+	SDL_RenderCopyEx(Screen::Instance()->GetRenderer(), m_image, &sourceRect, &targetRect, angle, &centre, SDL_FLIP_NONE/* static_cast<SDL_RendererFlip>(flip)*/);
 }
 
 void Sprite::Update()
@@ -76,7 +76,7 @@ void Sprite::Update()
 
 }
 
-bool Sprite::Load(const std::string& filename, Screen& screen)
+bool Sprite::Load(const std::string& filename)
 {	//from raw data we do texture
 	SDL_Surface* rawImageData = IMG_Load(filename.c_str());
 	if (!rawImageData)
@@ -85,7 +85,7 @@ bool Sprite::Load(const std::string& filename, Screen& screen)
 		return false;
 	}
 
-	m_image = SDL_CreateTextureFromSurface(screen.GetRenderer(), rawImageData);
+	m_image = SDL_CreateTextureFromSurface(Screen::Instance()->GetRenderer(), rawImageData);
 	return true;
 }
 

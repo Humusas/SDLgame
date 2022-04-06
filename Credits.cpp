@@ -18,12 +18,12 @@ void Credits::SetCredits(std::string credits)
 	//m_credits = credits;
 }
 
-void Credits::Update(Input& input)
+void Credits::Update()
 {
 	//m_text.SetText(std::to_string(m_credits));
 }
 
-void Credits::Render(Screen& screen)
+void Credits::Render()
 {
-	m_text.Render(20, 20, screen);
+	m_text.Render(20, 20);
 }

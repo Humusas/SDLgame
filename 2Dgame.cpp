@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	//do not use raw pointers. use smart ones instead. to have game on the heap:
 	std::unique_ptr<Game> NewGame = std::make_unique<Game>();
 
-	if (NewGame->Initialize())
+	if (NewGame->Initialize("New Game"))
 	{
 		NewGame->Run(new HelloState); // if can't run new game -> shut it down
 		NewGame->Shutdown();

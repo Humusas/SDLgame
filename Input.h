@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "Sound.h"
+#include <iostream>
 
 struct MousePos
 {
@@ -36,7 +37,7 @@ public:
 
 private:
 
-	Input();							//constructor
+	Input() { std::cout << "Input object created" << std::endl; };							//constructor
 	Input(const Input&);				//copy constructor
 	Input& operator=(const Input&);		//assignment operator
 

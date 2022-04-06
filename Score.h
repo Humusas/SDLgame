@@ -14,16 +14,13 @@ public:
 	void SetScore(int score);
 	void AddScore(int extraScore);
 
-	virtual void Update(Input& input);
-	virtual void Render(Screen& screen);
-
+	virtual void Update();
+	virtual void Render();
 
 private:
 
 	int m_score;
-
 	int m_newScore;
-
 	Text m_text;
 
 };

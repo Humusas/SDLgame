@@ -28,8 +28,8 @@ public:
 	void SetSize(int width, int height);
 	void SetSize(const Vector2D& size);
 
-	virtual void Update(Input& input) = 0;
-	virtual void Render(Screen& screen) = 0;
+	virtual void Update() = 0;
+	virtual void Render() = 0;
 
 protected:
 

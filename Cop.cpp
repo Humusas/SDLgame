@@ -2,10 +2,10 @@
 #include "Cop.h"
 #include "Vector2D.h"
 
-Cop::Cop(Screen& screen) : m_screen(screen)
+Cop::Cop()
 {
 	std::cout << "Player created" << std::endl;
-	m_image.Load("Assets/Images/cop.png", screen);
+	m_image.Load("Assets/Images/cop.png");
 	m_image.SetImageDimention(1, 1, 1000, 415);
 	m_image.SetSpriteDimention(250, 110);
 
@@ -42,7 +42,7 @@ void Cop::SetVelocity(int velocity)
 	m_velocity = velocity;
 }
 
-void Cop::Update(Input& Input)
+void Cop::Update()
 {
 	m_direction = m_direction.Scale(m_velocity);
 	m_position = m_position.Add(m_direction);
@@ -52,7 +52,7 @@ void Cop::Update(Input& Input)
 
 }
 
-void Cop::Render(Screen& screen)
+void Cop::Render()
 {
-	m_image.Render(m_position.x, m_position.y, m_angle, screen, Sprite::Flip::NO_FLIP);
+	m_image.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
 }

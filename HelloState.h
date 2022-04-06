@@ -13,11 +13,11 @@ public:
 	
 	~HelloState() override {}
 
-	bool OnEnter(Screen& screen) override;
-	bool Render(Screen& screen) override;
+	bool OnEnter() override;
+	bool Render() override;
 	void OnExit() override;
 
-	GameState* Update(Input& input, Screen& screen) override;
+	GameState* Update() override;
 
 private:
 

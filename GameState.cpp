@@ -1,11 +1,11 @@
 #include "GameState.h"
 
-bool GameState::OnEnter(Screen& screen)
+bool GameState::OnEnter()
 {
 	return 1;
 }
 
-bool GameState::Render(Screen& screen)
+bool GameState::Render()
 {
 	return true;
 }
@@ -14,7 +14,7 @@ void GameState::OnExit()
 {
 }
 
-GameState* GameState::Update(Input& input, Screen& screen)
+GameState* GameState::Update()
 {
 	return this;
 }
