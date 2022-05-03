@@ -24,7 +24,7 @@ bool Screen::Initialize(const std::string& windowTitle, int width, int height) /
 		SDL_WINDOWPOS_CENTERED,				// y
 		width,								//width
 		height,								//heigh
-		0);									//flags
+		0);//SDL_WINDOW_FULLSCREEN);		//flags 0- windowed mode, SDL_WINDOW_FULLSCREEN - fullscreen
 
 	if (!window) //if no window
 	{

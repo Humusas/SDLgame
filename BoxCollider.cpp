@@ -21,7 +21,6 @@ void BoxCollider::Update()
 	m_min.y = m_position.y;
 	m_max.x = m_position.x + m_dimension.x;
 	m_max.y = m_position.y + m_dimension.y;
-
 }
 
 bool BoxCollider::IsColliding(const BoxCollider& secondBox) const

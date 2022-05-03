@@ -22,5 +22,4 @@ private:
 	int m_score;
 	int m_newScore;
 	Text m_text;
-
 };

@@ -19,26 +19,26 @@ bool HelloState::OnEnter()
 
 GameState* HelloState::Update()
 {
-	MousePos MousePos = Input::Instance()->GetMousePosition(); //works
-		
+	Vector2D MousePos = Input::Instance()->GetMousePosition(); // not works
+	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
+
 	if (MousePos.x > 650 && MousePos.x < 700)
 	{
-		if (MousePos.y > 550 && MousePos.y < 600 && Input::Instance()->isMouseClicked() == true)
+		if (MousePos.y > 550 && MousePos.y < 600 && Input::Instance()->IsMouseClicked() == true)
 		{
 			Input::Instance()->MouseSound();
 			return new MenuState;
 		}
 	}
 	
-	if (Input::Instance()->isMouseClicked() == true)
+	if (Input::Instance()->IsMouseClicked() == true)
 	{
 		Input::Instance()->MouseSound();
 		std::cout << "mouse clicked" << std::endl;
 	}
 
-	if (Input::Instance()->isKeyPressed() == true)
+	if (Input::Instance()->IsKeyPressed() == true)
 	{
-		//std::cout << input.GetKeyDown() << std::endl;
 		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
 		{
 			return nullptr;

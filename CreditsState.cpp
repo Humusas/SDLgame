@@ -16,17 +16,17 @@ bool CreditsState::OnEnter()
 
 GameState* CreditsState::Update()
 {
-	MousePos MousePos = Input::Instance()->GetMousePosition();
+	Vector2D MousePos = Input::Instance()->GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
 	//check if user scrolls up or down a menu
 
-	if (Input::Instance()->isMouseClicked() == true)
+	if (Input::Instance()->IsMouseClicked() == true)
 	{
 		std::cout << "mouse clicked" << std::endl;
 	}
 
-	if (Input::Instance()->isKeyPressed() == true)
+	if (Input::Instance()->IsKeyPressed() == true)
 	{
 		//std::cout << input.GetKeyDown() << std::endl;
 		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)

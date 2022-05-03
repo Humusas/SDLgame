@@ -26,9 +26,6 @@ private:
 	Screen(const Screen&);				//copy constructor
 	Screen& operator=(const Screen&);   //assignment operator
 
-	//int m_width = 1000;
-	//int m_height = 750;
-
 	SDL_Window* window = nullptr;		//no value in pointer
 	SDL_Renderer* renderer = nullptr;	//no value in pointer
 };

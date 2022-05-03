@@ -5,7 +5,7 @@
 #include "Vector2D.h"
 #include "Music.h"
 #include "Screen.h"
-
+#include "Input.h"
 #include "Score.h"
 
 //inheritense: IS-A
@@ -16,7 +16,8 @@ class Player : public GameObject //player IS A game object
 public:
 
 	enum class Direction
-	{	Left,
+	{
+		Left,
 		Right
 	};
 
@@ -45,16 +46,16 @@ public:
 
 private:
 
-	Sprite m_image;
-	State m_state;
+	//player HAS a
+	Sprite m_playerImage;
+	BoxCollider m_collider;
 
+	State m_state;
 	Music m_idleEngine;
 
-	int m_velocity;
+	int m_velocity=5;
 
-	BoxCollider m_collider;
 	Direction m_facingDirection;
-	//Screen& m_screen;
 
 	//Sprite m_image[TOTAL_STATES]; //containment: player HAS AN image 
 	Score m_score;

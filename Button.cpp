@@ -1,29 +1,24 @@
 #include <iostream>
+#include "Input.h"
 #include "Button.h"
-#include "Sound.h"
 #include "BoxCollider.h"
 
 Button::Button()
 {
 	std::cout << "Button created" << std::endl;
-	m_image.Load("ASSETS/Images/forest.png");
-	m_image.SetImageDimention(1, 1, 1920, 1080);
-	m_image.SetSpriteDimention(1280, 720);
-
-	m_sound.Load("ASSETS/Sounds/bensound_punky.mp3");
-
-	m_collider.SetDimension(1280, 720);
 }
 
 Button::~Button()
 {
-	std::cout << "Background destroyed" << std::endl;
+	std::cout << "Button destroyed" << std::endl;
 	m_sound.Unload();
-	m_image.Unload();
+	m_buttonImage.Unload();
 }
 
 void Button::Update()
 {
+	Vector2D m_mouseLocation = Input::Instance()->GetMousePosition();
+
 	m_sound.SetVolume(3);
 
 	m_collider.SetPosition(m_position.x, m_position.y);
@@ -32,7 +27,7 @@ void Button::Update()
 
 void Button::Render()
 {
-	m_image.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
+	m_buttonImage.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
 }
 
 const BoxCollider& Button::GetCollider() const
@@ -40,7 +35,35 @@ const BoxCollider& Button::GetCollider() const
 	return m_collider;
 }
 
+void Button::SetButtonCointainer(int width, int height)
+{
+	m_min.x = m_position.x;
+	m_min.y = m_position.y;
+	m_max.x = m_position.x + width;
+	m_max.y = m_position.y + height;
+
+}
+
 void Button::ButtonSound()
 {
 	//m_music.Play(Music::PlayLoop::Play_Endless);
+}
+
+bool Button::HoveredOver()
+{
+	return true;
+}
+
+bool Button::IsClicked()
+{
+	if (true)//HoveredOver == true && mousedClicked==true)
+	{
+		
+		return true;
+	}
+	
+	else
+	{
+		return false;
+	}
 }

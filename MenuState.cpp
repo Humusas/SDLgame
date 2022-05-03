@@ -28,16 +28,16 @@ bool MenuState::OnEnter()
 
 GameState* MenuState::Update()
 {
-	MousePos MousePos = Input::Instance()->GetMousePosition();
+	Vector2D MousePos = Input::Instance()->GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
 	//check if user scrolls up or down a menu
-	if (Input::Instance()->isMouseClicked() == true)
+	if (Input::Instance()->IsMouseClicked() == true)
 	{
 		std::cout << "mouse clicked" << std::endl;
 	}
 
-	if (Input::Instance()->isKeyPressed() == true)
+	if (Input::Instance()->IsKeyPressed() == true)
 	{
 		//std::cout << input.GetKeyDown() << std::endl;
 		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
@@ -48,7 +48,7 @@ GameState* MenuState::Update()
 
 	if (MousePos.x > 399 && MousePos.x < 456) //car key
 	{
-		if (MousePos.y > 582 && MousePos.y < 606 && Input::Instance()->isMouseClicked() == true)
+		if (MousePos.y > 582 && MousePos.y < 606 && Input::Instance()->IsMouseClicked() == true)
 		{
 			Input::Instance()->MouseSound();
 			std::cout << "target hit" << std::endl;
@@ -58,7 +58,7 @@ GameState* MenuState::Update()
 
 	if (MousePos.x > 321 && MousePos.x < 391) //pile of papers
 	{
-		if (MousePos.y > 534 && MousePos.y < 581 && Input::Instance()->isMouseClicked() == true)
+		if (MousePos.y > 534 && MousePos.y < 581 && Input::Instance()->IsMouseClicked() == true)
 		{
 			Input::Instance()->MouseSound();
 			std::cout << "target hit" << std::endl;

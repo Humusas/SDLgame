@@ -8,10 +8,11 @@ Player::Player()
 {
 	std::cout << "Player created" << std::endl;
 	//m_state = IDLE;
-
-	m_image.Load("Assets/Images/judge.png");
-	m_image.SetImageDimention(1, 1, 1080, 500);
-	m_image.SetSpriteDimention(270, 125);
+	
+	m_playerImage.Load("ASSETS/Images/maybe.png");
+	m_playerImage.SetImageDimention(1,1,1003, 280 );
+	m_playerImage.SetSpriteDimention(450, 150);
+	m_position = { 3, 365 };
 
 	//============ no car on screen==========
 	//m_image[IDLE].Load("Assets/Images/judge.png", screen);
@@ -44,15 +45,16 @@ Player::Player()
 			m_image[i].IsAnimationLooping(false);
 		}
 	}*/
-
+	
 	m_collider.SetDimension(260, 95);
 }
 
 Player::~Player()
 {
 	std::cout << "Player destroyed" << std::endl;
+	m_playerImage.Unload();
+	
 	//m_image[TOTAL_STATES].Unload();
-	m_image.Unload();
 }
 
 void Player::idleEngine()
@@ -77,56 +79,58 @@ void Player::SetVelocity(int velocity)
 
 void Player::Update()
 {
-	if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_LEFT)//'a')
+	Input::Instance()->GetKeyDown();
+
+	if (Input::Instance()->GetKeyDown() == 'a')//SDLK_LEFT))
 	{
 		m_facingDirection = Direction::Left;
 		m_direction.x = -1;
 		m_direction.y = 0;
-		m_direction = m_direction.Scale(m_velocity);
+		//m_direction = m_direction.Scale(m_velocity);
 		m_position = m_position.Add(m_direction);
 		
 		//m_position.x -= m_velocity; //floats on x axis
 	}
-	else if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_RIGHT)// 'd')
+	else if (Input::Instance()->GetKeyDown() == 'd')//SDLK_RIGHT))
 	{
 		m_facingDirection = Direction::Right;
 		m_direction.x = 1;
 		m_direction.y = 0;
-		m_direction = m_direction.Scale(m_velocity);
+		//m_direction = m_direction.Scale(m_velocity);
 		m_position = m_position.Add(m_direction);
 		
 		//m_position.x += m_velocity; //floats on x axis
 	}
-	else if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_UP) //'w')
+	else if (Input::Instance()->GetKeyDown() == 'w')//SDLK_UP))
 	{
 		m_direction.x = 0;
 		m_direction.y = -1;
 
-		m_direction = m_direction.Scale(m_velocity);
+		//m_direction = m_direction.Scale(m_velocity);
 		m_position = m_position.Add(m_direction);
 
 		m_state = State::Acellerating;
 
 		//m_position.y -= m_velocity; //floats on x axis
 	}
-	else if (Input::Instance()->GetKeyDown() == SDL_SCANCODE_DOWN)//'s')
+	else if (Input::Instance()->GetKeyDown() == 's')//SDLK_DOWN)//'s')
 	{
 		m_direction.x = 0;
 		m_direction.y = 1;
-		m_direction = m_direction.Scale(m_velocity);
+//		m_direction = m_direction.Scale(m_velocity);
 		m_position = m_position.Add(m_direction);
 
 		m_state = State::Braking;
 
-		//m_position.y += m_velocity; //floats on x axis
+	//	m_position.y += m_velocity; //floats on x axis
 	}
 	else
 	{
 		m_direction.x = 0;
 		m_direction.y = 0;
 
-		m_direction = m_direction.Scale(m_velocity);
-		m_position = m_position.Add(m_direction);
+		//m_direction = m_direction.Scale(m_velocity);
+		//m_position = m_position.Add(m_direction);
 
 		m_state = State::Idle;
 		m_idleEngine.SetVolume(5);
@@ -140,15 +144,19 @@ void Player::Update()
 
 	}
 
-
 	//m_collider.SetDimension(m_size.x, m_size.y);
 	m_collider.SetPosition(m_position.x, m_position.y);
+	std::cout <<  " x axis - " << m_position.x << "  y axis - " << m_position.y << std::endl;
+	
 	m_collider.Update();
+	m_playerImage.Update();
 	
 }
 
 void Player::Render()
 {
 	//m_image[TOTAL_STATES].Render(m_position.x, m_position.y, m_angle, screen, Sprite::HO_FLIP); //doesnt flip
-	m_image.Render(m_position.x, m_position.y, m_angle, Sprite::NO_FLIP); //doesnt flip
+	
+	m_playerImage.Render(m_position.x, m_position.y, m_angle, Sprite::NO_FLIP); //doesnt flip
+
 }

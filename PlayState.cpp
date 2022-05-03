@@ -11,17 +11,16 @@ bool PlayState::OnEnter()
 	m_music.SetVolume(5);
 	m_music.Play(Music::PlayLoop::Play_Endless);
 
-	//player
-	
+
 	return true;
 }
 
 GameState* PlayState::Update()
 {
-
 	//All main game mechanics are updated here
 	m_player.Update();
-	if (Input::Instance()->isKeyPressed() == true)
+
+	if (Input::Instance()->IsKeyPressed() == true)
 	{
 		//std::cout << input.GetKeyDown() << std::endl;
 		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
@@ -36,11 +35,10 @@ GameState* PlayState::Update()
 bool PlayState::Render()
 {
 	m_backgroundImage.Render(0, 0, 0.0f, Sprite::Flip::NO_FLIP);
-	//Render player
+	
 	m_player.Render();
 	//render enemy
 	//render ...
-	//m_player.Render(screen);
 	
 	return true;
 }
@@ -49,6 +47,5 @@ void PlayState::OnExit()
 {
 	//unload all music, text, sprites for this state
 	m_backgroundImage.Unload();
-	//m_player.Unload();
 	m_music.Unload();
 }
