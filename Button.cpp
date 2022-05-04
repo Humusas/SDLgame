@@ -11,15 +11,37 @@ Button::Button()
 Button::~Button()
 {
 	std::cout << "Button destroyed" << std::endl;
-	m_sound.Unload();
 	m_buttonImage.Unload();
+	m_buttonSound.Unload();
 }
 
 void Button::Update()
 {
+	ButtonStates ButtonState;
+	switch (ButtonState)
+	{
+	case ButtonStates::hovered:
+	{
+		m_buttonHoveredImage.Load();
+		break;
+	}	
+
+	case ButtonStates::pressed:
+	{
+		m_buttonHoveredImage.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
+		m_buttonSound.Load("ASSETS/Sounds/blade.ogg");
+		break;
+	}
+
+	default: //default idle state
+
+		m_buttonImage.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
+
+		break;
+	}
+
 	Vector2D m_mouseLocation = Input::Instance()->GetMousePosition();
 
-	m_sound.SetVolume(3);
 
 	m_collider.SetPosition(m_position.x, m_position.y);
 	m_collider.Update();
@@ -41,16 +63,17 @@ void Button::SetButtonCointainer(int width, int height)
 	m_min.y = m_position.y;
 	m_max.x = m_position.x + width;
 	m_max.y = m_position.y + height;
-
 }
 
-void Button::ButtonSound()
+void Button::PlayButtonSound()
 {
-	//m_music.Play(Music::PlayLoop::Play_Endless);
+	m_buttonSound.Load("ASSETS/Sounds/blade.ogg");
 }
 
 bool Button::HoveredOver()
 {
+
+	//if(mouseP)
 	return true;
 }
 

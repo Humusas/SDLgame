@@ -33,7 +33,7 @@ void Sound::Play(int loop)
 	static int channel = 0;
 	if ((channel = Mix_PlayChannel(0, m_sound, loop)) == -1);
 	{
-		std::cout << "Error playing audio file" << std::endl;
+		std::cout << "Error playing sound file" << std::endl;
 	}
-	std::cout << channel << std::endl;
+	//std::cout << channel << std::endl;
 }

@@ -16,16 +16,16 @@ public:
 	const std::string GetTag() const;
 
 	float GetAngle() const;
-	const Vector2D& GetPosition() const; //const correct to stay same always
-	const Vector2D& GetSize() const;
+	const Vector2D& GetPosition() const; //const correct to get from the same valuable always
+	const Vector2D& GetSize() const; //return same game object size value
 
 	void SetTag(const std::string& tag);
 	void SetAngle(float angle);
 
-	void SetPosition(int x, int y);
+	//void SetPosition(int x, int y);
 	void SetPosition(const Vector2D& position);
 
-	void SetSize(int width, int height);
+	//void SetSize(int width, int height);
 	void SetSize(const Vector2D& size);
 
 	virtual void Update() = 0;
@@ -35,6 +35,6 @@ protected:
 
 	std::string m_tag;
 	float m_angle;
-	Vector2D m_position;   //x y in a struct
-	Vector2D m_size;
+	Vector2D m_position;	//x y in a struct
+	Vector2D m_size;		//x, y 
 };

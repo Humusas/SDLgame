@@ -2,12 +2,13 @@
 #include <string>
 #include "Screen.h"
 #include "SDL.h"
+#include "Vector2D.h"
 
 class Sprite
 {
 public:
 
-	enum Flip
+	enum class Flip
 	{
 		NO_FLIP = SDL_FLIP_NONE,
 		HO_FLIP = SDL_FLIP_HORIZONTAL,
@@ -29,6 +30,8 @@ public:
 
 	void SetAnimationVelocity(float velocity);
 
+	void GetCentrePosition();
+
 	void Update(); //cut from sprite animation sheet 1 single shot
 	void Render(int xPos, int yPos, double angle, Flip flip);
 
@@ -45,8 +48,14 @@ private:
 	bool m_isAnimationDead;
 
 	SDL_Texture* m_image;
-	SDL_Point m_spriteDimention; //width and hight of entire sprite image on screen
-	SDL_Point m_cellDimention; //width and hight of one cell in sprite
-	SDL_Point m_imageDimention; //width and hight of entire sprite image
+	//SDL_Point m_spriteDimention; //width and hight of entire sprite image on screen
+	//SDL_Point m_cellDimention; //width and hight of one cell in sprite
+	//SDL_Point m_imageDimention; //width and hight of entire sprite image
+	SDL_Point centre { 0,0 };
+
+	Vector2D m_spriteDimention; //width and hight of entire sprite image on screen
+	Vector2D m_cellDimention; //width and hight of one cell in sprite
+	Vector2D m_imageDimention; //width and hight of entire sprite image
+
 
 };

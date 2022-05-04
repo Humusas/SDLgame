@@ -3,16 +3,16 @@
 
 void BoxCollider::SetPosition(int x, int y)
 {
-	m_position.x = x;
-	m_position.y = y;
-	//m_position = { m_min.x,m_min.y };
+	//m_position.x = x;
+	//m_position.y = y;
+	m_position = { m_min.x,m_min.y };
 }
 
 void BoxCollider::SetDimension(int width, int height)
 {
-	m_dimension.x = width;
-	m_dimension.y = height;
-	//m_dimension = {m_position.x + width, m_position.y + height};
+	//m_dimension.x = width;
+	//m_dimension.y = height;
+	m_dimension = {m_position.x + width, m_position.y + height};
 }
 
 void BoxCollider::Update()

@@ -26,8 +26,6 @@ bool Game::Run(GameState* initialState)
 	while (m_gameState)  //will break if m_gameState == nullptr
 	{
 		Input::Instance()->Update();	//update keyboard buttons or mouse clicks
-		Input::Instance()->IsMouseClicked();
-		Input::Instance()->GetKeyDown();
 		Screen::Instance()->Clear();	//clearing the screen
 
 		//checking delta time

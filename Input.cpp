@@ -152,7 +152,7 @@ const Vector2D& Input::GetMouseMotion()
 
 void Input::MouseSound()
 {
-	m_mouseSound.Load("ASSETS/Sounds/blade.ogg");
+	//m_mouseSound.Load("ASSETS/Sounds/blade.ogg");
 	m_mouseSound.Play(0);
 	m_mouseSound.SetVolume(5);
 }

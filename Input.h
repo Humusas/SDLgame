@@ -277,15 +277,8 @@
 #include <iostream>
 #include "Vector2D.h"
 
-struct MousePos
-{
-	int x = 1;
-	int y = 1;
-};
-
 class Input  //keyboard, mouse
 {
-	//constructor
 public:
 
 	static Input* Instance(); //singleton
@@ -327,8 +320,7 @@ private:
 
 	Sound m_mouseSound;
 	Vector2D m_mouseMotion;
-	Vector2D m_mousePosition; // changed MousePos to Vector
-	//MousePos m_MousePosition; //returning references and struct as const
+	Vector2D m_mousePosition; // changed MousePos{x,y} to Vector
 		
 	//keyboard
 	bool m_isKeyPressed = false;

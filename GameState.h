@@ -16,7 +16,5 @@ public:
 	virtual bool Render() = 0;        //Here we draw all of our scene's game objects
 	virtual void OnExit() = 0;        //Unload assets in this function
 
-
 private:
-
 };

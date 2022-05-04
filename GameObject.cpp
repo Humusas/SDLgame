@@ -35,20 +35,20 @@ void GameObject::SetAngle(float angle)
     m_angle = angle;
 }
 
-void GameObject::SetPosition(int x, int y)
+/*void GameObject::SetPosition(int x, int y)
 {
     m_position = { x, y };
-}
+}*/
 
 void GameObject::SetPosition(const Vector2D& position)
 {
     m_position = position;
 }
 
-void GameObject::SetSize(int width, int height)
+/*void GameObject::SetSize(int width, int height)
 {
     m_size = { width, height };
-}
+}*/
 
 void GameObject::SetSize(const Vector2D& size)
 {

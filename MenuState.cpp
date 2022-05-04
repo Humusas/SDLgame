@@ -28,24 +28,24 @@ bool MenuState::OnEnter()
 
 GameState* MenuState::Update()
 {
+	if (Input::Instance()->IsMouseClicked() == true)
+	{
+		Input::Instance()->MouseSound();
+		//std::cout << "mouse clicked" << std::endl;
+	}
+
+	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) == true)
+	{
+		return nullptr;
+	}
+
 	Vector2D MousePos = Input::Instance()->GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
 	//check if user scrolls up or down a menu
-	if (Input::Instance()->IsMouseClicked() == true)
-	{
-		std::cout << "mouse clicked" << std::endl;
-	}
 
-	if (Input::Instance()->IsKeyPressed() == true)
-	{
-		//std::cout << input.GetKeyDown() << std::endl;
-		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
-		{
-			return nullptr;
-		}
-	}
 
+	//convert to buttons
 	if (MousePos.x > 399 && MousePos.x < 456) //car key
 	{
 		if (MousePos.y > 582 && MousePos.y < 606 && Input::Instance()->IsMouseClicked() == true)

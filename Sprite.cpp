@@ -49,6 +49,9 @@ void Sprite::Render(int xPos, int yPos, double angle, Flip flip)
 	targetRect.h = m_spriteDimention.y;
 
 	SDL_Point centre{ m_spriteDimention.x * 0.5f, m_spriteDimention.y * 0.5f }; //vidurys sprite 
+	//Vector2D centre { m_spriteDimention.x * 0.5, m_spriteDimention.y * 0.5 }; //vidurys sprite 
+
+	//GetCentrePosition();
 
 	SDL_RenderCopyEx(Screen::Instance()->GetRenderer(), m_image, &sourceRect, &targetRect, angle, &centre, SDL_FLIP_NONE/* static_cast<SDL_RendererFlip>(flip)*/);
 }
@@ -126,4 +129,9 @@ void Sprite::SetImageDimention(int columns, int rows, int width, int height)
 void Sprite::SetAnimationVelocity(float velocity)
 {
 	m_animationVelocity = velocity;
+}
+
+void Sprite::GetCentrePosition()
+{
+	//return   m_spriteDimension.x, m_spriteDimension.y ;
 }

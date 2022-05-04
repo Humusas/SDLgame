@@ -11,22 +11,27 @@ bool PlayState::OnEnter()
 	m_music.SetVolume(5);
 	m_music.Play(Music::PlayLoop::Play_Endless);
 
-
 	return true;
 }
 
 GameState* PlayState::Update()
 {
+	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) == true)
+	{
+		return nullptr;
+	}
 	//All main game mechanics are updated here
+
 	m_player.Update();
 
-	if (Input::Instance()->IsKeyPressed() == true)
+
+	Vector2D MousePos = Input::Instance()->GetMousePosition();
+	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
+
+	if (Input::Instance()->IsMouseClicked() == true)
 	{
-		//std::cout << input.GetKeyDown() << std::endl;
-		if (Input::Instance()->GetKeyDown() == SDLK_ESCAPE)
-		{
-			return nullptr;
-		}
+		Input::Instance()->MouseSound();
+		//std::cout << "mouse clicked" << std::endl;
 	}
 
 	return this;
