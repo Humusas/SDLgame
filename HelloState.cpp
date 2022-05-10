@@ -22,12 +22,7 @@ bool HelloState::OnEnter()
 
 GameState* HelloState::Update()
 {
-	if (Input::Instance()->IsMouseClicked() == true)
-	{
-		Input::Instance()->MouseSound();
-		//std::cout << "mouse clicked" << std::endl;
-	} // works
-
+	
 	//asking if ESC button(int 41) pressed
 	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) == true)
 	{
@@ -43,7 +38,6 @@ GameState* HelloState::Update()
 	{
 		if (MousePos.y > 550 && MousePos.y < 600 && Input::Instance()->IsMouseClicked() == true)
 		{
-			Input::Instance()->MouseSound();
 			return new MenuState;
 		}
 	}
@@ -52,7 +46,6 @@ GameState* HelloState::Update()
 
 bool HelloState::Render()
 {
-	m_startButton.Render();
 	m_image.Render(0, 0, 0.0f, Sprite::Flip::NO_FLIP);
 	//render all buttons
 	//render menu text
@@ -65,5 +58,4 @@ void HelloState::OnExit()
 	//unload all music, text, sprites for this state
 	m_image.Unload();
 	m_music.Unload();
-	m_startButton.~Button();
 }

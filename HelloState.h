@@ -24,5 +24,4 @@ private:
 	//All menu stuff declared here!
 	Sprite m_image; //local images that are applied only in HelloState
 	Music m_music; //local music for HelloState
-	Button m_startButton;
 };

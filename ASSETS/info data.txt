@@ -6,3 +6,12 @@ music
 	 page 2 "Metal tank door closing" for door closing effect
 
 https://itch.io/c/259611/gui   "buttons" 
+
+car assets for 1 dolla
+https://apokalips123.itch.io/pixel-car-assets-pack/download/nXlsJ9s2KSv5scdZvJKOY_HDDKXK_fl4NTa9p_Aa
+
+animation spritesheet creator
+https://www.codeandweb.com/free-sprite-sheet-packer
+
+background space image
+https://www.gamedevmarket.net/asset/full-hd-space-background/

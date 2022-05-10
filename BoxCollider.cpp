@@ -2,21 +2,19 @@
 
 
 void BoxCollider::SetPosition(int x, int y)
-{
-	//m_position.x = x;
-	//m_position.y = y;
-	m_position = { m_min.x,m_min.y };
+{//vectors
+	m_position.x = m_min.x;
+	m_position.y = m_min.y;
 }
 
 void BoxCollider::SetDimension(int width, int height)
-{
-	//m_dimension.x = width;
-	//m_dimension.y = height;
-	m_dimension = {m_position.x + width, m_position.y + height};
+{//vectors
+	m_dimension.x = m_position.x + width;
+	m_dimension.y = m_position.y + height;
 }
 
 void BoxCollider::Update()
-{
+{//vectors
 	m_min.x = m_position.x;
 	m_min.y = m_position.y;
 	m_max.x = m_position.x + m_dimension.x;
@@ -26,11 +24,6 @@ void BoxCollider::Update()
 bool BoxCollider::IsColliding(const BoxCollider& secondBox) const
 {
 	//or just return instead of if
-	if (m_max.x > secondBox.m_min.x && secondBox.m_max.x > m_min.x &&
-		m_max.y > secondBox.m_min.y && secondBox.m_max.y > m_min.y)
-		return true;
-	else
-	{
-		return false;
-	};
+	return (m_max.x > secondBox.m_min.x && secondBox.m_max.x > m_min.x &&
+		m_max.y > secondBox.m_min.y && secondBox.m_max.y > m_min.y);
 }

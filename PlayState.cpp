@@ -28,12 +28,6 @@ GameState* PlayState::Update()
 	Vector2D MousePos = Input::Instance()->GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
-	if (Input::Instance()->IsMouseClicked() == true)
-	{
-		Input::Instance()->MouseSound();
-		//std::cout << "mouse clicked" << std::endl;
-	}
-
 	return this;
 }
 

@@ -18,7 +18,6 @@ GameState* CreditsState::Update()
 {
 	if (Input::Instance()->IsMouseClicked() == true)
 	{
-		Input::Instance()->MouseSound();
 		//std::cout << "mouse clicked" << std::endl;
 	}
 
@@ -34,7 +33,6 @@ GameState* CreditsState::Update()
 	{
 		if (MousePos.y > 599 && MousePos.y < 701 && Input::Instance()->IsMouseClicked() == true)
 		{
-			Input::Instance()->MouseSound();
 			std::cout << "target hit" << std::endl;
 			return new MenuState; //game play screen
 		}

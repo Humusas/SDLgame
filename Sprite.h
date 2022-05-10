@@ -35,6 +35,7 @@ public:
 	void Update(); //cut from sprite animation sheet 1 single shot
 	void Render(int xPos, int yPos, double angle, Flip flip);
 
+	Vector2D GetSpriteDimention() const; // how large on screen
 private:
 
 	Flip m_imageFlip;

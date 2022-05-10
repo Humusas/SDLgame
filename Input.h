@@ -273,7 +273,6 @@
 #define HM_MOUSE_RIGHT 4
 
 #include <SDL.h>
-#include "Sound.h"
 #include <iostream>
 #include "Vector2D.h"
 
@@ -287,7 +286,6 @@ public:
 	bool IsMouseClicked();
 	bool IsMouseClicked(int mouseButton_1, int mouse_Button_2 = HM_MOD_NONE);
 	void SetCursorState(bool isCursorEnabled, bool isCursorVisible);
-	void MouseSound();
 	
 	const Vector2D& GetMousePosition();
 	const Vector2D& GetMouseMotion();
@@ -318,7 +316,6 @@ private:
 	int m_mouseButtonUp{HM_MOD_NONE};
 	int m_mouseButtonDown{HM_MOD_NONE};
 
-	Sound m_mouseSound;
 	Vector2D m_mouseMotion;
 	Vector2D m_mousePosition; // changed MousePos{x,y} to Vector
 		

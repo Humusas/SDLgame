@@ -1,92 +1,58 @@
 #include <iostream>
-#include "Input.h"
-#include "Button.h"
-#include "BoxCollider.h"
 
-Button::Button()
+#include "Button.h"
+
+Button::Button(const std::string& filename)
 {
+	//function to set button name (set name to game object -> button)
+	SetTag(filename);
+	m_buttonImage.Load("ASSETS/Images/"+GetTag()+".png"); //pick image by image name tag
+	m_buttonImage.SetImageDimention(2,1,1200,600);
+	m_buttonImage.SetSpriteDimention(200,200);
+
 	std::cout << "Button created" << std::endl;
 }
 
 Button::~Button()
 {
-	std::cout << "Button destroyed" << std::endl;
 	m_buttonImage.Unload();
-	m_buttonSound.Unload();
+	std::cout << "Button destroyed" << std::endl;
+}
+
+const Button::ButtonStates& Button::GetButtonState() const
+{
+	return m_buttonState;
 }
 
 void Button::Update()
 {
-	ButtonStates ButtonState;
-	switch (ButtonState)
-	{
-	case ButtonStates::hovered:
-	{
-		m_buttonHoveredImage.Load();
-		break;
-	}	
+	m_buttonImage.SetImageCell(1, 1);
+	m_mouse.x = Input::Instance()->GetMousePosition().x;
+	m_mouse.y = Input::Instance()->GetMousePosition().y;
+	m_mouse.w = 1;
+	m_mouse.h = 1;
 
-	case ButtonStates::pressed:
+	m_sprite.x = m_position.x;
+	m_sprite.y = m_position.y;
+	m_sprite.w = m_buttonImage.GetSpriteDimention().x;
+	m_sprite.h = m_buttonImage.GetSpriteDimention().y;
+
+	if (static_cast<bool>(SDL_HasIntersection(&m_mouse, &m_sprite)))
 	{
-		m_buttonHoveredImage.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
-		m_buttonSound.Load("ASSETS/Sounds/blade.ogg");
-		break;
+		if (Input::Instance()->IsMouseClicked()) //if mouse clicked true
+		{
+			m_buttonState = ButtonStates::pressed;
+		}
+		m_buttonImage.SetImageCell(2, 1);
+		m_buttonState = ButtonStates::hovered;
 	}
-
-	default: //default idle state
-
-		m_buttonImage.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
-
-		break;
+	else
+	{
+		m_buttonState = ButtonStates::idle;
 	}
-
-	Vector2D m_mouseLocation = Input::Instance()->GetMousePosition();
-
-
-	m_collider.SetPosition(m_position.x, m_position.y);
-	m_collider.Update();
 }
 
 void Button::Render()
 {
 	m_buttonImage.Render(m_position.x, m_position.y, m_angle, Sprite::Flip::NO_FLIP);
-}
-
-const BoxCollider& Button::GetCollider() const
-{
-	return m_collider;
-}
-
-void Button::SetButtonCointainer(int width, int height)
-{
-	m_min.x = m_position.x;
-	m_min.y = m_position.y;
-	m_max.x = m_position.x + width;
-	m_max.y = m_position.y + height;
-}
-
-void Button::PlayButtonSound()
-{
-	m_buttonSound.Load("ASSETS/Sounds/blade.ogg");
-}
-
-bool Button::HoveredOver()
-{
-
-	//if(mouseP)
-	return true;
-}
-
-bool Button::IsClicked()
-{
-	if (true)//HoveredOver == true && mousedClicked==true)
-	{
-		
-		return true;
-	}
-	
-	else
-	{
-		return false;
-	}
 }

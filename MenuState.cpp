@@ -9,29 +9,48 @@ bool MenuState::OnEnter()
 	m_image.SetImageDimention(1, 1, 1920, 1080);
 	m_image.SetSpriteDimention(1280, 720);
 	
-	m_carkey.Load("ASSETS/Images/car_key.png");
-	m_carkey.SetImageDimention(1, 1, 473, 418);
-	m_carkey.SetSpriteDimention(50, 50);
+	buttonPosition.x = 200;
+	buttonPosition.y = 500;
+	//buttons.push_back(Button("key"));
+	buttons.push_back(Button("pappers"));
+	buttons.push_back(Button("keys"));
 
-	m_papers.Load("ASSETS/Images/papers.png");
-	m_papers.SetImageDimention(1, 1, 1037, 789);
-	m_papers.SetSpriteDimention(80, 80);
+	for (auto& button : buttons)
+	{
+		button.SetPosition(buttonPosition);
+		buttonPosition.x += 300;
+	}
 
 	//Load assets for menu buttons
 	//Load menu background music
+	m_music.SetVolume(50);
 	m_music.Load("Assets/Music/joshua-mclean_dreams-left-behind.mp3");
 	m_music.Play(Music::PlayLoop::Play_Endless);
-	m_music.SetVolume(50);
 
 	return true;
 }
 
 GameState* MenuState::Update()
 {
-	if (Input::Instance()->IsMouseClicked() == true)
+	for (auto& button : buttons)
 	{
-		Input::Instance()->MouseSound();
-		//std::cout << "mouse clicked" << std::endl;
+		button.Update();
+
+		if (button.GetButtonState() == Button::ButtonStates::hovered)
+		{
+			
+		}
+		if (button.GetButtonState() == Button::ButtonStates::pressed)
+		{
+			if (button.GetTag() == "keys")
+			{
+				return new PlayState;
+			}
+		}
+		if (button.GetButtonState() == Button::ButtonStates::idle)
+		{
+
+		}
 	}
 
 	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) == true)
@@ -39,32 +58,8 @@ GameState* MenuState::Update()
 		return nullptr;
 	}
 
-	Vector2D MousePos = Input::Instance()->GetMousePosition();
-	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
-
-	//check if user scrolls up or down a menu
-
-
-	//convert to buttons
-	if (MousePos.x > 399 && MousePos.x < 456) //car key
-	{
-		if (MousePos.y > 582 && MousePos.y < 606 && Input::Instance()->IsMouseClicked() == true)
-		{
-			Input::Instance()->MouseSound();
-			std::cout << "target hit" << std::endl;
-			return new PlayState; //game play screen
-		}
-	}
-
-	if (MousePos.x > 321 && MousePos.x < 391) //pile of papers
-	{
-		if (MousePos.y > 534 && MousePos.y < 581 && Input::Instance()->IsMouseClicked() == true)
-		{
-			Input::Instance()->MouseSound();
-			std::cout << "target hit" << std::endl;
-			return new CreditsState; //game credits screen
-		}
-	}
+//	std::cout << Input::Instance()->GetMousePosition().x << std::endl;
+//	std::cout << Input::Instance()->GetMousePosition().y << std::endl;
 
 	return this;
 }
@@ -72,10 +67,12 @@ GameState* MenuState::Update()
 bool MenuState::Render()
 {
 	m_image.Render(0, 0, 0.0f, Sprite::Flip::NO_FLIP); //background
-	m_carkey.Render(400, 575, 25.0f, Sprite::Flip::NO_FLIP);
-	m_papers.Render(315, 529, 0.0f, Sprite::Flip::NO_FLIP);
 
 	//render all buttons
+	for (auto& button : buttons)
+	{
+		button.Render();
+	}
 	//render menu text
 
 	return false;
@@ -84,8 +81,7 @@ bool MenuState::Render()
 void MenuState::OnExit()
 {
 	//unload all music, text, sprites for this state
-	m_carkey.Unload();
-	m_papers.Unload();
 	m_image.Unload();
 	m_music.Unload();
+	buttons.~vector();
 }

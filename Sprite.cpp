@@ -8,8 +8,7 @@ Sprite::Sprite()
 {
 	m_image = nullptr;
 
-	m_imageCell = 0;
-	
+	m_imageCell = 0;	
 
 	m_isAnimated = false;
 	m_isAnimationDead = false;
@@ -54,6 +53,11 @@ void Sprite::Render(int xPos, int yPos, double angle, Flip flip)
 	//GetCentrePosition();
 
 	SDL_RenderCopyEx(Screen::Instance()->GetRenderer(), m_image, &sourceRect, &targetRect, angle, &centre, SDL_FLIP_NONE/* static_cast<SDL_RendererFlip>(flip)*/);
+}
+
+Vector2D Sprite::GetSpriteDimention() const
+{
+	return m_spriteDimention;
 }
 
 void Sprite::Update()
