@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SDL.h>
 #include "Input.h"
-#include "Sound.h"
 
 Input* Input::Instance()
 {
@@ -84,22 +83,22 @@ void Input::Update()
 
 				switch (events.button.button)
 				{
-				case SDL_BUTTON_LEFT:
-				{
-					m_mouseButtonDown ^= HM_MOUSE_LEFT;
-					break;
-				}
+					case SDL_BUTTON_LEFT:
+					{
+						m_mouseButtonDown ^= HM_MOUSE_LEFT;
+						break;
+					}
 
-				case SDL_BUTTON_MIDDLE:
-				{
-					m_mouseButtonDown = HM_MOUSE_MIDDLE;
-					break;
-				}
-				case SDL_BUTTON_RIGHT:
-				{
-					m_mouseButtonDown = HM_MOUSE_RIGHT;
-					break;
-				}
+					case SDL_BUTTON_MIDDLE:
+					{
+						m_mouseButtonDown = HM_MOUSE_MIDDLE;
+						break;
+					}
+					case SDL_BUTTON_RIGHT:
+					{
+						m_mouseButtonDown = HM_MOUSE_RIGHT;
+						break;
+					}
 				}
 				break;
 			}

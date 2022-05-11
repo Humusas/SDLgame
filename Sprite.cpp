@@ -47,7 +47,7 @@ void Sprite::Render(int xPos, int yPos, double angle, Flip flip)
 	targetRect.w = m_spriteDimention.x;
 	targetRect.h = m_spriteDimention.y;
 
-	SDL_Point centre{ m_spriteDimention.x * 0.5f, m_spriteDimention.y * 0.5f }; //vidurys sprite 
+	SDL_Point centre{ m_spriteDimention.x /2, m_spriteDimention.y /2 }; //vidurys sprite 
 	//Vector2D centre { m_spriteDimention.x * 0.5, m_spriteDimention.y * 0.5 }; //vidurys sprite 
 
 	//GetCentrePosition();
@@ -67,7 +67,7 @@ void Sprite::Update()
 		static float total = 0.0f;
 		total += 0.1f;
 
-		std::cout << total << std::endl;
+		//std::cout << total << std::endl;*/
 
 		//m_imageCell = total % (m_imageDimention.x * m_imageDimention.y);
 

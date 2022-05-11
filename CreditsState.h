@@ -1,6 +1,9 @@
 #pragma once
+#include <memory>
+#include <vector>
+#include "Button.h"
 #include "GameState.h"
-#include "Music.h"
+//#include "Music.h"
 #include "Image.h"
 #include "MenuState.h"
 
@@ -20,8 +23,10 @@ private:
 
 	//All menu stuff declared here!
 	//Background m_background; //unique background for MenuState
-	Sprite m_sign;
-	Sprite m_credits;
-	Music m_music;
-
+	//unique pointer to avoid shadow button deleting image for the button
+	std::vector <std::unique_ptr<Button>>buttone; //vector of many Button class buttons
+	Vector2D buttonPosition;
+	Sound m_buttonSound;
+	
+	//Music m_music;
 };

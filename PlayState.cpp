@@ -8,7 +8,7 @@ bool PlayState::OnEnter()
 	m_backgroundImage.SetSpriteDimention(1280, 720);
 
 	m_music.Load("ASSETS/Music/bensound_punky.mp3");
-	m_music.SetVolume(5);
+	m_music.SetVolume(2);
 	m_music.Play(Music::PlayLoop::Play_Endless);
 
 	return true;
@@ -25,7 +25,7 @@ GameState* PlayState::Update()
 	m_player.Update();
 
 
-	Vector2D MousePos = Input::Instance()->GetMousePosition();
+	//Vector2D MousePos = Input::Instance()->GetMousePosition();
 	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
 	return this;

@@ -4,7 +4,6 @@
 #include "Player.h"
 #include "Score.h"
 #include "Text.h"
-#include "Vector2D.h"
 */
 
 #include <iostream>
@@ -55,16 +54,6 @@ int main(int argc, char* argv[])
 
 	while (isGameRunning) //bool = 1;
 	{
-
-		if (Input.isWindowClosed())
-		{
-			isGameRunning = false;
-		}
-		if (Input.GetKeyDown() == SDLK_ESCAPE)  //close game window with Esc button
-		{
-			isGameRunning = false;
-		}
-
 		switch (game_screen)
 		{
 		case 1: //game_screen = 1
@@ -122,16 +111,6 @@ int main(int argc, char* argv[])
 		case 3://credits and thank you notes
 		{
 			Screen.Clear();
-
-			if (MousePos.x > 1161 && MousePos.x < 1261) //sign
-			{
-				if (MousePos.y > 599 && MousePos.y < 701 && Input.isMouseClicked() == true)
-				{
-					Input.MouseSound();
-					std::cout << "target hit" << std::endl;
-					game_screen = 2; //game menu screen
-				}
-			}
 			Screen.Present();
 		}
 		break;

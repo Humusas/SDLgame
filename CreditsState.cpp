@@ -3,22 +3,28 @@
 
 bool CreditsState::OnEnter()
 {
-	m_sign.Load("ASSETS/Images/sign.png");
-	m_sign.SetImageDimention(1, 1, 480, 480);
-	m_sign.SetSpriteDimention(100, 100);
-	
-	//m_credits.Load("ASSETS/Images/credits.png", screen);
-	//m_credits.SetImageDimention(1, 1, 1200, 532);
-	//m_credits.SetSpriteDimention(1280, 720);
+	buttone.push_back(std::make_unique<Button>("signs"));
+	buttonPosition = {1125, 550};
 
 	return true;
 }
 
 GameState* CreditsState::Update()
 {
-	if (Input::Instance()->IsMouseClicked() == true)
+	for (auto& button : buttone)
 	{
-		//std::cout << "mouse clicked" << std::endl;
+		button->SetPosition(buttonPosition);
+		button->Update();
+
+		if (button->GetButtonState() == Button::ButtonStates::hovered) {}
+		if (button->GetButtonState() == Button::ButtonStates::pressed)
+		{
+			if (button->GetTag() == "signs")
+			{
+				return new MenuState;
+			}
+		}
+		if (button->GetButtonState() == Button::ButtonStates::idle) {}
 	}
 
 	if (Input::Instance()->IsKeyPressed(HM_KEY_ESCAPE) == true)
@@ -26,17 +32,8 @@ GameState* CreditsState::Update()
 		return nullptr;
 	}
 
-	Vector2D MousePos = Input::Instance()->GetMousePosition();
-	std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
-
-	if (MousePos.x > 1160 && MousePos.x < 1261) //car key
-	{
-		if (MousePos.y > 599 && MousePos.y < 701 && Input::Instance()->IsMouseClicked() == true)
-		{
-			std::cout << "target hit" << std::endl;
-			return new MenuState; //game play screen
-		}
-	}
+	//Vector2D MousePos = Input::Instance()->GetMousePosition();
+	//std::cout << "Mouse cursor at (" << MousePos.x << ", " << MousePos.y << ")" << std::endl;
 
 	//check if user scrolls up or down a menu
 
@@ -46,16 +43,24 @@ GameState* CreditsState::Update()
 bool CreditsState::Render()
 {
 	//m_credits.Render(0, 0, 0.0, screen, Sprite::Flip:: NO_FLIP);
-	m_sign.Render(1161, 600, 0.0f, Sprite::Flip:: NO_FLIP);
-
+	//m_sign.Render(1161, 600, 0.0f, Sprite::Flip:: NO_FLIP);
+	//Sign.Render();
+	for (auto& button : buttone)
+	{
+		button->Render();
+	}
 	//render menu text
-
 	return false;
 }
 
 void CreditsState::OnExit()
 {
-	m_sign.Unload();
-	//unload all music, text, sprites for this state
+	//m_sign.Unload();
 	//~m_background();
+	//unload all music, text, sprites for this state
+	//m_background.Unload();
+	//m_music.Unload();
+	std::cout << "Credits on exit" << std::endl;
+	buttone.~vector();
+	//Sign.~Button();
 }

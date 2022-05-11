@@ -57,6 +57,4 @@ private:
 	Vector2D m_spriteDimention; //width and hight of entire sprite image on screen
 	Vector2D m_cellDimention; //width and hight of one cell in sprite
 	Vector2D m_imageDimention; //width and hight of entire sprite image
-
-
 };
